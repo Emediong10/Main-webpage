@@ -1,0 +1,26 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	 
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+ .bg-hero{
+	 background-color: #EDDEA7 !important;
+	 padding: 30px !important;
+	 z-index: 1;
+	 object-fit: contain;
+ }
+ .hero-right{
+	margin-left: -16% !important;
+	 
+ }
+
+ 
+ @media (max-width: 564.98px){ 
+	.hero-right{
+		margin-left: 0% !important;
+	 }
+ }
+ 
