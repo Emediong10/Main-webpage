@@ -4,7 +4,7 @@
 
 
 @font-face {
-	font-family: 'Inter', sans-serif;
+	font-family: 'Arca Majora';
 	src: url('css/fonts/arca-heavy-webfont.eot');
 	src: url('css/fonts/arca-heavy-webfont.eot?#iefix') format('embedded-opentype'),
 		 url('css/fonts/arca-heavy-webfont.woff2') format('woff2'),
@@ -18,7 +18,7 @@
 h1,
 h2,
 h3,
-h4 { font-family: 'Inter', sans-serif; }
+h4 { font-family: 'Arca Majora', sans-serif; }
 
 
 

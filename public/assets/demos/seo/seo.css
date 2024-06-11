@@ -249,7 +249,7 @@ input.switch-toggle-round + label::after { border-radius: 4px }
 .testi-content p {
 	text-align: center;
 	font-style: normal;
-	font-family: var(--fontfamily,'Inter', sans-serif);
+	font-family: var(--fontfamily,'Poppins', sans-serif);
 	font-size: var(--basefontsize, 16px);
 }
 
