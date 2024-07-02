@@ -49,30 +49,25 @@
 
                     <div class="tab-content" id="tabs-2">
                         <blockquote class="quote">
-                            <p>{{ $tab2_title }}</p>
+                            <p class="justify-center" style="font-weight: bold;">{{ $tab2_title }}</p>
                         </blockquote>
-                        <div class="row col-mb-50 mb-0">
+                        <div class="mb-0 row col-mb-50 horizontal-list">
                             @foreach ($tapping as $item)
-                                <div id="oc-team" class="owl-carousel team-carousel carousel-widget" data-margin="30"
-                                    data-nav="true" data-pagi="true" data-items-xs="1" data-items-sm="2"
-                                    data-items-lg="3" data-items-xl="4">
-                                    <div class="team">
-                                        <div class="team-image">
-                                            <img src="{{ url('storage',$item['image']) }}" alt="ALIVE Nigeria">
-                                        </div>
-                                        <div class="team-desc">
-                                            <div class="team-title">
-                                                <h4>{{ $item['tab2_name'] }}</h4><span>{{ $item['tab2_position'] }}</span>
-                                            </div>
+                                <div class="team">
+                                    <div class="team-image">
+                                        <img src="{{ url('storage', $item['image']) }}" alt="ALIVE Nigeria">
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-title">
+                                            <h4>{{ $item['tab2_name'] }}</h4>
+                                            <span>{{ $item['tab2_position'] }}</span>
                                         </div>
                                     </div>
-
-
                                 </div>
                             @endforeach
-
                         </div>
                     </div>
+
 
 
 
@@ -104,3 +99,49 @@
         </div>
     </div>
 </section><!-- #content end -->
+
+<style>
+.horizontal-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Adjust the gap between items as needed */
+}
+
+.team {
+    flex: 1 1 calc(25% - 30px); /* 4 items per row */
+    max-width: calc(25% - 30px);
+    box-sizing: border-box;
+}
+
+.team-image img {
+    max-width: 100%;
+}
+
+.team-desc {
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .team {
+        flex: 1 1 calc(33.33% - 30px); /* 3 items per row */
+        max-width: calc(33.33% - 30px);
+    }
+}
+
+@media (max-width: 992px) {
+    .team {
+        flex: 1 1 calc(50% - 30px); /* 2 items per row */
+        max-width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .team {
+        flex: 1 1 100%; /* 1 item per row */
+        max-width: 100%;
+    }
+}
+
+
+</style>

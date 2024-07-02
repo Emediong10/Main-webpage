@@ -138,22 +138,7 @@ class EventResource extends Resource
                         ->options(function(){
                             return User::all()->pluck('name','id');
                         })
-                    //     Select::make('organogram')
-                    //     ->label('Select Organogram(s)')
-                    //     ->multiple()
-                    //     ->searchable()
-                    //     ->preload()
-                    //     ->options(function(){
-                    //         if(Auth::user()->role_id>2)
-                    //         {
-                    //             //return Auth::user()->organogram->where('parent_id',Auth::user()->organogram_id)->get()->pluck('name','id');
-                    //           return Auth::user()->organogram->pluck('name','id');
-                    //         }
-                    //         else
-                    //         {
-                    //             return Organogram::all()->pluck('name','id');
-                    //         }
-                    //     }),
+                   
                      ])
                     ->disableItemCreation()
                     ->disableItemDeletion()

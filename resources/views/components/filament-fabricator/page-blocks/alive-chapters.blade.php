@@ -57,27 +57,25 @@
             <br>
 
             <div class="mb-0 row col-mb-80">
-            <div class="col-12">
-
-                <div class="heading-block center border-bottom-0">
-                    <h2>{{ $header_title }}</h2>
-                    <span>{{ $header_subtitle }}</span>
-                </div>
-
-                <div class="fslider" data-pagi="false" data-animation="fade">
-                    <div class="flexslider">
-                        <div class="slider-wrap">
-
-                            @foreach ($slider_image as $item)
-                            <div class="slide"><img src="{{ url('storage', $item['header_slider_image']) }}" alt="header_slider_image"></div>
-                            @endforeach
-
+                <div class="col-12">
+                    <div class="heading-block center border-bottom-0">
+                        <h2>{{ $header_title }}</h2>
+                        <span>{{ $header_subtitle }}</span>
+                    </div>
+                    <div class="fslider" data-pagi="false" data-animation="fade">
+                        <div class="flexslider">
+                            <div class="slider-wrap">
+                                @foreach ($slider_image as $item)
+                                <div class="slide">
+                                    <img class="slider-image" src="{{ url('storage', $item['header_slider_image']) }}" alt="header_slider_image">
+                                </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-            </div>
-            </div>
 
             <section id="content">
                 <div class="content-wrap">
@@ -290,4 +288,13 @@
                     border-radius: 50%;
                     background: var(--danger, #dc3545);
                 }
+
+                .slider-image {
+    width: 30px;  /* Set the width to 30px */
+    height: 10px; /* Set the height to 10px */
+    margin: 0 auto; /* Center the image */
+    object-fit: cover; /* Ensure the image covers the specified dimensions */
+}
+
+
                 </style>

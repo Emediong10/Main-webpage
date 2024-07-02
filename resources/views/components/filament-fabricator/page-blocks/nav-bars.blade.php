@@ -50,7 +50,7 @@
                                     <ul class="sub-menu-container">
                                         @foreach ($item['children'] as $children_item)
                                             <li class="menu-item">
-                                                <a class="menu-link" target = "blank"
+                                                <a class="menu-link"
                                                     href="{{ isset($children_item['data']['url']) ? $children_item['data']['url'] : '#' }}">
                                                     <div>{{ $children_item['label'] }}</div>
                                                 </a>
@@ -73,12 +73,7 @@
                             </li>
                         @endforeach
                     </ul>
-                </nav><!-- #primary-menu end -->
-
-                <form class="top-search-form" action="search.html" method="get">
-                    <input type="text" name="q" class="form-control" value=""
-                        placeholder="Type &amp; Hit Enter.." autocomplete="off">
-                </form>
+                </nav>
 
             </div>
         </div>

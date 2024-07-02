@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('preview-template/{template}',[App\Http\Controllers\TemplateController::class,'preview'])->name('preview-template');
 Route::get('preview-page/{page}',[App\Http\Controllers\TemplateController::class,'preview_page'])->name('preview-page');
+Route::get('preview-info/{info}',[App\Http\Controllers\InfoController::class,'preview_info'])->name('preview-info');
+
+Route::redirect('canvas','/');
+
+foreach(Event::where('active',1)->get() as $event) {
+    Route::get('event'."/".$event->slug, [
+        'uses' => 'App\Http\Controllers\InfoController@render_event',
+        'event'=>$event->id
+    ])->name('event-'.$event->slug);
+}
