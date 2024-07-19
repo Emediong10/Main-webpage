@@ -289,11 +289,11 @@
                     background: var(--danger, #dc3545);
                 }
 
-                .slider-image {
-    width: 30px;  /* Set the width to 30px */
-    height: 10px; /* Set the height to 10px */
-    margin: 0 auto; /* Center the image */
-    object-fit: cover; /* Ensure the image covers the specified dimensions */
+    @media (max-width: 768px) {
+    .slider-image {
+        width: 100px;  /* Set the width to 30px */
+        height: 500px; /* Set the height to 20px */
+    }
 }
 
 

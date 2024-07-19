@@ -73,7 +73,7 @@
                         <div class="col-lg-3 col-md-6 bottommargin-sm">
                             <div class="feature-box media-box fbox-bg">
                                 <div class="fbox-media">
-                                   <img src="{{ asset('storage/'.$image4)}}" alt="Featured Box Image">
+                                   <img src="{{asset('storage/'.$image4)}}" alt="Featured Box Image">
                                 </div>
                                 <div class="border-0 fbox-content">
                                     <h3 class="nott ls0 fw-semibold">{{ $title4 }}<span class="subtitle fw-light ls0">{{ $sub_title4 }}</span></h3>

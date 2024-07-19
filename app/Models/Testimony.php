@@ -3,16 +3,19 @@
 namespace App\Models;
 
 use App\Models\User;
-use App\Models\Event;
+// use App\Models\Event;
+use App\Models\Testimony;
 use Awcodes\Curator\Models\Media;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Event extends Model
+class Testimony extends Model
 {
     use HasFactory;
+
     protected $guarded=[];
+
 
     protected $casts=[
         'viewable_by'=> 'array',
@@ -29,24 +32,29 @@ class Event extends Model
         return $this->belongsTo(User::class,'created_by');
     }
 
-    public static function get_admin_events()
+    public static function get_admin_testimony()
     {
         if(Auth::user())
         {
-            return Event::query()->whereRaw("JSON_EXTRACT(viewable_by, '$[0].users') LIKE '%\"".Auth::user()->id."\"%'")
+            return Testimony::query()->whereRaw("JSON_EXTRACT(viewable_by, '$[0].users') LIKE '%\"".Auth::user()->id."\"%'")
            ->whereRaw("active = 1")->orWhere('created_by',Auth::user()->id)->with('image');
         }
         else
         {
-            return Event::query()->where('active',1)->with('image');
+            return Testimony::query()->where('active',1)->with('image');
         }
     }
 
+    // public static function get_organogram_news($organogram)
+    // {
+    //     if($organogram=="*")
+    //     {
+    //        News::query()->where('is_active',1);
+    //     }
+    //     else
+    //     {
+    //       return News::query()->WhereRaw("JSON_EXTRACT(viewable_by, '$[0].organogram') LIKE '%\"".$organogram."\"%'")->whereRaw("is_active = 1");
+    //     }
+    // }
 
- public function user()
-    {
-        return $this->belongTo(User::class);
-    }
-
-   
 }

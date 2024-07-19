@@ -8,7 +8,7 @@
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
         '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">',
         '<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&display=swap" rel="stylesheet" type="text/css" />',
-        ' <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all">',
+       // ' <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all">',
         '<link href="https://api.fontshare.com/v2/css?f[]=sentient@400,700,201,301,200,501,500,300,2,1,401,701&display=swap" rel="stylesheet">',
          asset('assets/css/bootstrap.css'),
         asset('assets/style.css'),
@@ -66,7 +66,7 @@
 	<script src="{{ asset('assets/js/plugins.min.js')}}"></script>
 	<script src="{{ asset('assets/js/functions.js')}}"></script>
 
-   
+
 
 
 
@@ -92,10 +92,14 @@
     <script src="{{ asset('assets/include/rs-plugin/js/extensions/revolution.extension.migration.min.js') }}"></script>
 
 
+
+
+
 	<!-- TYPEWRITER ADDON -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 	<script src="{{ asset('assets/include/rs-plugin/demos/typewriter/js/revolution.addon.typewriter.min.js') }}"></script>
 	<link rel="stylesheet" type="text/css" href="assets/include/rs-plugin/demos/typewriter/css/typewriter.css">
+
 
     <script>
 		var tpj=jQuery;
@@ -181,7 +185,49 @@
 		});
 
         /*ready*/
+        var tpj=jQuery;
+		var revapi100;
+		var $ = jQuery.noConflict();
 
+		tpj(document).ready(function() {
+			if(tpj("#rev_slider_100_1").revolution == undefined){
+				revslider_showDoubleJqueryError("#rev_slider_100_1");
+			}else{
+				revapi100 = tpj("#rev_slider_100_1").show().revolution({
+					sliderType:"hero",
+					jsFileLocation:"include/rs-plugin/js/",
+					sliderLayout:"fullscreen",
+					dottedOverlay:"none",
+					delay:9000,
+					navigation: {
+					},
+					responsiveLevels:[1200,992,768,480,320],
+					gridwidth:[1140,940,720,420,280],
+					gridheight:[600,500,400,300,200],
+					lazyType:"none",
+					parallax: {
+						type:"mouse",
+						origo:"slidercenter",
+						speed:2000,
+						levels:[2,3,4,5,6,7,12,16,10,50],
+					},
+					fullScreenOffsetContainer:"header",
+					shadow:0,
+					spinner:"off",
+					autoHeight:"off",
+					disableProgressBar:"on",
+					hideThumbsOnMobile:"off",
+					hideSliderAtLimit:0,
+					hideCaptionAtLimit:0,
+					hideAllCaptionAtLilmit:0,
+					debugMode:false,
+					fallbacks: {
+						simplifyAll:"off",
+						disableFocusListener:false,
+					}
+				});
+			}
+		});
 
 	</script>
 	@section('scripts')

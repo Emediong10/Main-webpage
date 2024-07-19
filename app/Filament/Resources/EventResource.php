@@ -70,13 +70,12 @@ class EventResource extends Resource
                     ->searchable()
                     ->options(EventType::all()->pluck('name', 'id')),
 
-                    MarkdownEditor::make('content')->label('News Content')->fileAttachmentsDirectory('media')->required(),
+                    TextArea::make('content')->label('News Content')->required(),
                     CuratorPicker::make('image_id')
                          ->label('Featured Image')
                          ->relationship('image', 'id'),
                     TextInput::make('author')->label('News Author'),
-                    // TagsInput::make('seo_tags')->label('SEO Tags')->required(),
-                    Textarea::make('meta_description')
+                    TextArea::make('meta_description')
                        ->label('Meta Description'),
 
                     Toggle::make('is_general')->helperText('Should this events be accessbile to the Home Page or other News snippet pages'),
@@ -138,7 +137,7 @@ class EventResource extends Resource
                         ->options(function(){
                             return User::all()->pluck('name','id');
                         })
-                   
+
                      ])
                     ->disableItemCreation()
                     ->disableItemDeletion()
@@ -155,7 +154,7 @@ class EventResource extends Resource
                 TextColumn::make('title')->label('Event Title'),
                 TextColumn::make('author')->label('Event Author')->icon('heroicon-m-user'),
                 TextColumn::make('slug')->label('URL Slug'),
-                CuratorColumn::make('image_id')
+                CuratorColumn::make('image.id')
                          ->label('Image')
                          ->size(60),
                 TextColumn::make('created_by')

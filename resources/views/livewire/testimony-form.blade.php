@@ -2,7 +2,7 @@
     <div>
         <section class="bg-light">
                <div class="container py-5">
-                   
+
                    <div class="p-5 shadow lc-block rounded-3 col-xl-10 offset-xl-1">
 
 
@@ -44,17 +44,39 @@
                         </div>
                         </div>
                            <div class="mb-4 form-group">
-                               <label>Subject</label>
+                               <label>Your Testimony Title</label>
                                <input type="text" wire:model="subject" class="form-control" placeholder="Contact Subject">
                            </div>
 
                            <div class="mb-4 form-group">
-                               <label>Your Message</label>
-                               <textarea wire:model="comment" class="form-control" rows="3" maxlength="300"></textarea>
+                               <label>Write Your Testimony Here</label>
+                               <textarea wire:model="comment" class="form-control" rows="3" placeholder="typing..." maxlength="300"></textarea>
                                @error('comment') <span style="color: red;">{{ $message }}</span> @enderror
                            </div>
+
+                           {{-- <div class="mb-4 form-group">
+                            <label>photo</label>
+                            <input type="file" wire:model="image">
+
+                            @error('image') <span class="error">{{ $message }}</span> @enderror
+                        </div> --}}
+
+                        <div class="mb-4 form-group">
+                            <label>upload your testimony Picture</label>
+                            <input type="file" wire:model="image" class="file-loading form-select required" data-show-preview="false" />
+                            @if ($image)
+                            <img src="{{ $image->temporaryUrl() }}">
+                            {{-- <x-filament::avatar src='{{ $getState() }}' size="w-16 h-16" class="rounded-full"/> --}}
+                        @endif
+                        </div>
+
+                        <div class="mb-4 form-group">
+                            <input class="form-check-input" type="checkbox" wire:model='can_post' value="" aria-label="...">
+                            <label for="inlineRadio1">Do you want us to post your testimony as a source of inspiration to everyone?</label>
+                          </div>
+
                            <button type="submit" class="btn btn-lg" style="background-color:#215312; border-color: #28a745; color: white;">
-                            Submit Form
+                            Submit here
                         </button>
 
                        </form>
@@ -64,4 +86,5 @@
        </div>
 
 </div>
+
 

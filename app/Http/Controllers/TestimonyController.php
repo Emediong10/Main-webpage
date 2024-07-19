@@ -2,20 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Page;
-use App\Models\Event;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Blade;
-use Z3d0X\FilamentFabricator\Facades\FilamentFabricator;
 
-class InfoController extends Controller
+class TestimonyController extends Controller
 {
-    public function render_event(Request $request, Event $event)
+    public function render_testimony(Request $request, Testimony $testimony)
     {
         //dd($request->route());
-        $page=Page::where('slug','event/?event')->first();
+        $page=Page::where('slug','testimony/?testimonies')->first();
 
-        $event=Event::where('id',$request->route()->getAction()['event'])->first();
+        $testimony=Testimony::where('id',$request->route()->getAction()['testimonies'])->first();
 
         //$page=Info::where('id',$request->route()->getAction()['page'])->first();
         if(!$page->published)
@@ -24,9 +20,9 @@ class InfoController extends Controller
         }
         //dd($page);
 
-        $page->seo_tags=$event->seo_tags;
-        $page->description=$event->meta_description;
-        $page->title=$event->title;
+        $page->seo_tags=$testimony->seo_tags;
+        $page->description=$testimony->meta_description;
+        $page->subject=$testimony->subject;
 
         //dd($page);
         /** @var ?class-string<Layout> $layout */
