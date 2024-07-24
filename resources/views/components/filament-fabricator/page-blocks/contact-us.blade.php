@@ -8,7 +8,8 @@
     </div>
 
 
-    <livewire:contact-form/>
+    @livewire('contact-form', ['formType' => 'contact_us'])
+
 
 </div>
         @livewireScripts()

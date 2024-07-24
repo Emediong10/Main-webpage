@@ -24,7 +24,14 @@ class ContactUsResource extends Resource
 
     protected static ?string $model = ContactUs::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Event';
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->previousUrl ?? $this->getResource()::getUrl('index');
+    }
+
+    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-left-ellipsis';
 
     public static function form(Form $form): Form
     {
@@ -33,7 +40,7 @@ class ContactUsResource extends Resource
                 Section::make('View Comments')->schema([
 
 
-                    
+
                          Textarea::make('comment')->disabledOn('edit'),
                      ])
 
@@ -45,14 +52,14 @@ class ContactUsResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('firstname')->label('Firstname')->searchable(),
-                TextColumn::make('lastname')->label('Lastname')->searchable(),
-                TextColumn::make('email')->label('Email')->searchable(),
-                 TextColumn::make('phone')->label('phone')->searchable(),
-                 TextColumn::make('subject')->label('subject')->searchable(),
-                TextColumn::make('created_at')->dateTime('l M j, Y: h:i:A'),
-                 TextColumn::make('updated_at')->dateTime('l M j, Y: h:i:A'),
-
+                TextColumn::make('form_type')->searchable()->sortable(),
+                TextColumn::make('firstname')->label('Firstname')->searchable()->sortable(),
+                TextColumn::make('lastname')->label('Lastname')->searchable()->sortable(),
+                TextColumn::make('email')->label('Email')->searchable()->sortable(),
+                 TextColumn::make('phone')->label('phone')->searchable()->sortable(),
+                 TextColumn::make('subject')->label('subject')->searchable()->sortable(),
+                TextColumn::make('created_at')->dateTime('l M j, Y: h:i:A')->searchable()->sortable(),
+                 TextColumn::make('updated_at')->dateTime('l M j, Y: h:i:A')->searchable()->sortable(),
             ])
             ->filters([
                 //

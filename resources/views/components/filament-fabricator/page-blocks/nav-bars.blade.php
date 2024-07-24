@@ -10,9 +10,9 @@
                 ============================================= -->
                 <div id="logo">
                     <a href="#" class="standard-logo" data-dark-logo="images/Aliveng.png"><img
-                            src="{{ asset('images/Aliveng.png') }}" alt="Canvas Logo"></a>
+                            src="{{ asset('images/Aliveng.png') }}" alt="Alive-Nigeria"></a>
                     <a href="#" class="retina-logo" data-dark-logo="images/Aliveng.png"><img
-                            src="{{ asset('images/Aliveng.png') }}" alt="Canvas Logo"></a>
+                            src="{{ asset('images/Aliveng.png') }}" alt="Alive-Nigeria"></a>
                 </div><!-- #logo end -->
 
 

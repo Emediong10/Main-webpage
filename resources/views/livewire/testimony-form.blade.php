@@ -50,23 +50,18 @@
 
                            <div class="mb-4 form-group">
                                <label>Write Your Testimony Here</label>
-                               <textarea wire:model="comment" class="form-control" rows="3" placeholder="typing..." maxlength="300"></textarea>
+                               <textarea wire:model="comment" class="form-control" rows="3" placeholder="typing..." maxlength="10000"></textarea>
                                @error('comment') <span style="color: red;">{{ $message }}</span> @enderror
                            </div>
 
-                           {{-- <div class="mb-4 form-group">
-                            <label>photo</label>
-                            <input type="file" wire:model="image">
 
-                            @error('image') <span class="error">{{ $message }}</span> @enderror
-                        </div> --}}
 
                         <div class="mb-4 form-group">
                             <label>upload your testimony Picture</label>
                             <input type="file" wire:model="image" class="file-loading form-select required" data-show-preview="false" />
                             @if ($image)
-                            <img src="{{ $image->temporaryUrl() }}">
-                            {{-- <x-filament::avatar src='{{ $getState() }}' size="w-16 h-16" class="rounded-full"/> --}}
+                            <img src="{{ $image->temporaryUrl() }}" width="1000" height="600">
+
                         @endif
                         </div>
 

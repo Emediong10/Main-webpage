@@ -2,7 +2,7 @@
     <div>
         <section class="bg-light">
                <div class="container py-5">
-                   
+
                    <div class="p-5 shadow lc-block rounded-3 col-xl-10 offset-xl-1">
 
 
@@ -18,6 +18,9 @@
 
 
                        <form wire:submit="save">
+
+                        <input type="hidden" wire:model="formType">
+
                            <div class="row">
                                <div class="mb-4 col-md-6 form-group">
                                    <label>Your First Name</label>

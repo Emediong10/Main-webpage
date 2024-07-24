@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Event;
+use App\Models\Testimony;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +27,11 @@ foreach(Event::where('active',1)->get() as $event) {
         'uses' => 'App\Http\Controllers\InfoController@render_event',
         'event'=>$event->id
     ])->name('event-'.$event->slug);
+}
+
+foreach(Testimony::where('active',1)->get() as $testimony) {
+    Route::get('testimony'."/".$testimony->slug, [
+        'uses' => 'App\Http\Controllers\TestimonyController@render_testimony',
+        'testimony'=>$testimony->id
+    ])->name('testimony-'.$testimony->slug);
 }

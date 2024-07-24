@@ -9,11 +9,18 @@ class ContactForm extends Component
 {
     public $firstname, $lastname, $email, $phone, $subject, $comment;
     public $successMsg;
+    public $formType;
 
     public function render()
     {
         return view('livewire.contact-form');
     }
+
+    public function mount($formType)
+    {
+        $this->formType = $formType;
+    }
+
     public function save()
     {
        // dd($this->save);
@@ -25,7 +32,8 @@ class ContactForm extends Component
             'subject' => 'required',
             'comment' => 'required'
         ]);
-       // dd($this->phone);
+
+        // dd($this->formType);
 
         ContactUs::create([
             'firstname' => $this->firstname,
@@ -34,19 +42,31 @@ class ContactForm extends Component
             'phone' => $this->phone,
             'subject' => $this->subject,
             'comment' => $this->comment,
+            'form_type' => $this->formType,
 
         ]);
 
-       $this->successMsg = "Thank you for contacting us";
-      session()->flash('success_message',$this->successMsg);
 
-        // 
+        if ($this->formType == 'contact_us') {
+            $this->successMsg = "Thank you for contacting us.";
+            session()->flash('success_message', $this->successMsg);
+            $this->clearForm();
+            return redirect('/contact-us');
+        } elseif ($this->formType == 'prayer') {
+            $this->successMsg = "Thank you for your prayer request.";
+            session()->flash('success_message', $this->successMsg);
+            $this->clearForm();
+            return redirect('/prayer');
+        }
+    }
 
-}
-
-public function clearForm()
-{
-    return redirect('/contact-us');
-}
-
+    public function clearForm()
+    {
+        $this->firstname = '';
+        $this->lastname = '';
+        $this->email = '';
+        $this->phone = '';
+        $this->subject = '';
+        $this->comment = '';
+    }
 }

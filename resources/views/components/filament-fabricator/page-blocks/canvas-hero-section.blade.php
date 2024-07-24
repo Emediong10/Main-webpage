@@ -74,7 +74,7 @@
                         <div class="oc-item">
                             <div class="testimonial topmargin-sm">
                                 <div class="testi-image">
-                                    <a href="#"><img src="{{ asset('storage/'.$image1)}}" alt="Customer Testimonials"></a>
+                                    <img src="{{ asset('storage/'.$image1)}}" alt="Customer Testimonials">
                                 </div>
                                 <div class="testi-content">
                                     <p>{{ $sub_title1 }}</p>
@@ -86,7 +86,7 @@
 
                             <div class="testimonial topmargin-sm">
                                 <div class="testi-image">
-                                    <a href="#"><img src="{{ asset('storage/'.$image2)}}" alt="Customer Testimonials"></a>
+                                    <img src="{{ asset('storage/'.$image2)}}" alt="Customer Testimonials">
                                 </div>
                                 <div class="testi-content">
                                     <p>{{ $sub_title2 }}</p>

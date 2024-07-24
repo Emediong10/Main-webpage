@@ -72,6 +72,6 @@ class TestimonyForm extends Component
         $this->image = null;
         $this->can_post = false;
 
-        return redirect('/testing');
+        return redirect('/testimony-form');
     }
 }

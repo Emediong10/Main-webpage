@@ -1,11 +1,12 @@
 @aware(['page'])
+@props(['testimony'])
 <section id="content">
     <div class="content-wrap">
 
         <section id="page-title">
 
             <div class="container clearfix">
-                <h1>Read the {{ $testimony->subject }} news below</h1>
+                <h1>Read this Testimony below</h1>
 
             </div>
 
@@ -13,33 +14,31 @@
         <div class="container clearfix">
 
 
-            <!-- Posts
-            ============================================= -->
-            <div id="posts" class="row gutter-30">
 
-                <div class="entry col-12">
-                    <div class="grid-inner">
-                        <div class="entry-image">
-                           <img src="{{ asset('storage/'.$testimony->image->path) }}" alt="{{$testimony->image->alt}}">
+<div class="row justify-content-center mt-6">
+    <div class="col-lg-8">
+        <div class="testimonial p-0">
+            {{-- <div id="oc-testi" class="owl-carousel testimonials-carousel carousel-widget" data-margin="0" data-pagi="false" data-items="1"> --}}
+                <div class="oc-item">
+
+                    <div class="row g-0 flex-column align-items-center">
+                        <div class="col-12 d-flex align-self-stretch overflow-hidden">
+                            <img src="{{ asset('storage/' . $testimony->image) }}" class="rounded img-fluid" width="900" height="200" alt="Testimonial Image">
                         </div>
-                        <div class="entry-title">
-                            <h2>{{ ucfirst($testimony->title)}}</h2>
-                        </div>
-                        <div class="entry-meta">
-                            <ul>
-                                {{-- <li><i class="icon-calendar3"></i>Start date:{{ $event->start_date }}</li>
-                                <li><i class="icon-calendar3"></i>End date:{{ $event->end_date }}</li> --}}
-                                <li><a href="#"><i class="icon-user"></i> Autor:{{$testimony->$fistname}} {{$testimony->$lastname}}</a></li>
-                                {{-- <li><i class="icon-folder-open"></i><time>Time: <span>{{ $event->start_time }} - {{ $event->end_time }}</span> </time></li> --}}
-                                {{-- <li><i class="icon-folder-open"></i> <time></time></li> --}}
-                                {{-- <li><i class="icon-comments"></i>Venue:{{ $event->venue}}</li> --}}
-                                {{-- <li><a href="#"><i class="icon-camera-retro"></i></a></li> --}}
-                            </ul>
-                        </div>
-                        <div class="entry-content">
-                            {!! $testimony->comment !!}
+                        <div class="col-12 px-5 py-4 testi-content text-center">
+                            <h3 class="mb-0">Name: {{$testimony->firstname}} {{$testimony->lastname}}</h3>
+                            <h5 class="text-black-50 fw-normal"><span class="bold">Testimony Title: </span> {{ ucfirst($testimony->subject)}}</h5>
+                            <div class="entry-content">
+                                {!! $testimony->comment !!}
+                            </div>
                         </div>
                     </div>
                 </div>
+            {{-- </div> --}}
+        </div>
+    </div>
+</div>
 
-</div><!-- #posts end -->
+
+
+

@@ -1,7 +1,8 @@
 @aware(['page'])
 <div>
 
-    <livewire:contact-form/>
+    @livewire('contact-form', ['formType' => 'prayer'])
+
 
 </div>
         @livewireScripts()

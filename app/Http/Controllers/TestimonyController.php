@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Page;
+use App\Models\Testimony;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Blade;
+use Z3d0X\FilamentFabricator\Facades\FilamentFabricator;
 
 class TestimonyController extends Controller
 {
@@ -11,7 +14,7 @@ class TestimonyController extends Controller
         //dd($request->route());
         $page=Page::where('slug','testimony/?testimonies')->first();
 
-        $testimony=Testimony::where('id',$request->route()->getAction()['testimonies'])->first();
+        $testimony=Testimony::where('id',$request->route()->getAction()['testimony'])->first();
 
         //$page=Info::where('id',$request->route()->getAction()['page'])->first();
         if(!$page->published)

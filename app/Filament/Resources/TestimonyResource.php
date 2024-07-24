@@ -10,7 +10,8 @@ use Filament\Forms\Form;
 use App\Models\Testimony;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
-//use App\Filament\Fields\SomeInput;
+// use Filament\Forms\Components\ToggleButtons;
+
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
@@ -22,6 +23,7 @@ use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Columns\BooleanColumn;
 use App\Filament\Resources\TestimonyResource\Pages;
+use Filament\Forms\Components\Toggle;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\TestimonyResource\RelationManagers;
 
@@ -29,7 +31,14 @@ class TestimonyResource extends Resource
 {
     protected static ?string $model = Testimony::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-envelope-open';
+
+    protected static ?string $navigationGroup = 'Event';
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->previousUrl ?? $this->getResource()::getUrl('index');
+    }
 
     public static function form(Form $form): Form
     {
@@ -46,7 +55,7 @@ class TestimonyResource extends Resource
                        ->afterStateUpdated(fn (string $operation, $state, Set $set) => $operation === 'edit' ? $set('slug', Str::slug($state)) : null),
                 TextInput::make('slug')
                         ->required()
-                        ->disabled()
+                        // ->disabled()
                         ->dehydrated()
                         ->unique(Testimony::class, 'slug', ignoreRecord:true),
 
@@ -56,6 +65,11 @@ class TestimonyResource extends Resource
                             ->directory('testimonies')
                             ->downloadable(),
                             Textarea::make('comment'),
+                            Toggle::make('active')
+                                ->onColor('success')
+                                ->offColor('danger')
+                                ->label('Click here to publish this testimony')
+
                     ])
                     // ->columns(2),
 
@@ -68,15 +82,21 @@ class TestimonyResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image')
-                ->label('image'),
                 TextColumn::make('firstname')->searchable()->sortable(),
                 TextColumn::make('lastname')->searchable()->sortable(),
+                ImageColumn::make('image')
+                ->label('image')
+                ->size(40)
+                ->width(100)
+                ->height(50),
                 TextColumn::make('slug')->searchable()->sortable(),
                 TextColumn::make('email')->searchable()->sortable(),
                 TextColumn::make('phone')->searchable()->sortable(),
                 TextColumn::make('subject')->searchable()->sortable(),
                 BooleanColumn::make('can_post'),
+                BooleanColumn::make('active'),
+
+
 
 
 

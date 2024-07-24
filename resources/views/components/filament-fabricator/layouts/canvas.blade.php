@@ -15,7 +15,7 @@
        // asset('assets/css/bootstrap-icons.css'),
         asset('assets/css/swiper.css'),
         asset('assets/css/dark.css'),
-       // asset('assets/css/slick.css'),
+      asset('assets/css/slick.css'),
         asset('assets/css/font-icons.css'),
         asset('assets/css/animate.css'),
         asset('assets/css/magnific-popup.css'),
@@ -32,12 +32,16 @@
         asset('assets/css/components/bs-switches.css'),
         asset('assets/demos/seo/css/fonts.css'),
         asset('assets/css/colors.php?color=FE9603'),
+        asset('assets/demos/landing/landing.css'),
+
         asset('assets/demos/seo/seo.css'),
+        asset('assets/demos/landing/css/fonts.css'),
       //  asset('assets/css/components/datepicker.css'),
         asset('assets/css/components/bs-rating.css'),
         asset('assets/css/font-icons.css'),
       //  asset('assets/css/components/radio-checkbox.css'),
         asset('assets/css/colors.php?color=AC4147'),
+
 
 
 
@@ -90,12 +94,13 @@
     <script src="{{ asset ('assets/include/rs-plugin/js/extensions/revolution.extension.carousel.min.js') }}"></script>
 	<script src="{{ asset('assets/include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
     <script src="{{ asset('assets/include/rs-plugin/js/extensions/revolution.extension.migration.min.js') }}"></script>
-
+    <script src="{{ asset('assets/js/components/moment.js') }}"></script>
 
 
 
 
 	<!-- TYPEWRITER ADDON -->
+    <script src="https://cdn.jsdelivr.net/npm/circletype@2.3.0/dist/circletype.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 	<script src="{{ asset('assets/include/rs-plugin/demos/typewriter/js/revolution.addon.typewriter.min.js') }}"></script>
 	<link rel="stylesheet" type="text/css" href="assets/include/rs-plugin/demos/typewriter/css/typewriter.css">
@@ -228,7 +233,24 @@
 				});
 			}
 		});
+        const circleType = new CircleType(
+			document.getElementById("rotated-text")
+			).radius(80);
 
+	</script>
+    <script>
+		jQuery(window).on( 'pluginCarouselReady', function(){
+			setTimeout( function(){
+				$('.owl-stage').after('<div class="owl-stage-outer-bg"></div>');
+			}, 1000 );
+		});
+	</script>
+    <script>
+		jQuery(window).on( 'pluginCarouselReady', function(){
+			setTimeout( function(){
+				$('.owl-stage').after('<div class="owl-stage-outer-bg"></div>');
+			}, 1000 );
+		});
 	</script>
 	@section('scripts')
     @show

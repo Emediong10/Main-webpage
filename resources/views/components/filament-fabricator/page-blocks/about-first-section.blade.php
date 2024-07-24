@@ -14,15 +14,35 @@
     'tab4_details',
 ])
 
-<section id="page-title" style="background-color: #28591a" class=" page-title-dark">
+ <section id="content" style="background-color: aliceblue">
+			<div class="content-wrap">
+				<div class="container center clearfix">
+
+					 {{-- <h3>Rotating Circular Text</h3> --}}
+
+					<div class="circular-text position-relative">
+						<h4 id="rotated-text" class="m-0 rotating infinite">
+							Read and know everything about ALIVE-Nigeria and it's ministry
+						</h4>
+						<a class="center-text fw-bold h2 text-dark" href="#">ALIVE-NG</a>
+					</div>
+
+				 </div>
+			</div>
+		</section>
+
+{{-- <section id="page-title" style="background-color: #28591a" class=" page-title-dark">
 
     <div class="container clearfix">
+
+
+
         <h1 class="center">About ALIVE NIGERIA</h1>
 
     </div>
 
 </section>
-<br>
+<br> --}}
 <section id="content">
     <div class="content-wrap">
         <div class="container">
@@ -100,7 +120,52 @@
     </div>
 </section><!-- #content end -->
 
+
 <style>
+
+    .center-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @-webkit-keyframes rotating /* Safari and Chrome */ {
+      from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotating {
+      from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    .rotating {
+      -webkit-animation: rotating 20s linear infinite;
+      -moz-animation: rotating 20s linear infinite;
+      -ms-animation: rotating 20s linear infinite;
+      -o-animation: rotating 20s linear infinite;
+      animation: rotating 20s linear infinite;
+    }
+
 .horizontal-list {
     display: flex;
     flex-wrap: wrap;

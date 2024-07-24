@@ -45,16 +45,7 @@ class Testimony extends Model
         }
     }
 
-    // public static function get_organogram_news($organogram)
-    // {
-    //     if($organogram=="*")
-    //     {
-    //        News::query()->where('is_active',1);
-    //     }
-    //     else
-    //     {
-    //       return News::query()->WhereRaw("JSON_EXTRACT(viewable_by, '$[0].organogram') LIKE '%\"".$organogram."\"%'")->whereRaw("is_active = 1");
-    //     }
-    // }
+
+
 
 }
