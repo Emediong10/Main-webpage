@@ -30,7 +30,7 @@
 
 </div>
 @endforeach
-                <h5 class="mt-4 text-center fw-normal text-white-50 mb-0">Didn't find what you were after? <a href="#" class="text-white"><u>Visit the FAQ Page</u></a></h5>
+                <h5 class="mt-4 text-center fw-normal text-white-50 mb-0">Didn't find what you were after? <a href="/about" class="text-white"><u>Visit the About Page</u></a></h5>
             </div>
         </div>
     </div>

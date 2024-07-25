@@ -1,15 +1,29 @@
 @aware(['page'])
 @props(['url_prefix','testimonies','news_pagination'])
-<section id="page-title">
 
-    <div class="container clearfix">
+
+
+<div class="row justify-content-center col-mb-80">
+    <div class="col-md-7">
+        <div class="fancy-title title-center title-border">
+            <h3>Lazy Loading iFrame</h3>
+        </div>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item lazy" width="560" height="315" data-src="https://www.youtube.com/embed/SZEflIVnhH8" allowfullscreen></iframe>
+        </div>
+    </div>
+
+<section id="page-title" style="background-color: rgb(191, 224, 182)">
+
+    <div class="container clearfix" >
         <h1>read Testimonies below</h1>
 
     </div>
 
 </section>
 
-<section id="content" style="background-color: rgb(225, 238, 238)">
+
+<section id="content" style="background-color: rgb(191, 224, 182)">
     <div class="content-wrap">
         <div class="container clearfix">
 
@@ -49,8 +63,8 @@
 
         </div>
     </div>
-</section>
 
- <br>
+    <br>
+</section>
 
 
