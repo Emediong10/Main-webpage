@@ -81,6 +81,11 @@
     <div class="header-wrap-clone"></div>
 </header><!-- #header end -->
 <style>
+                    #logo img {
+                        width: 200px;
+                        height: auto;
+                    }
+
     @media (max-width: 564.98px) {
         .logo_fit {
             margin-left: 0%;

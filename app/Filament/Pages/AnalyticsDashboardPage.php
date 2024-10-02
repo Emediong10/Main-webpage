@@ -18,7 +18,6 @@ class AnalyticsDashboardPage extends Page
             Widgets\VisitorsWidget::class,
             Widgets\ActiveUsersOneDayWidget::class,
             Widgets\ActiveUsersSevenDayWidget::class,
-            //Widgets\ActiveUsersFourteenDayWidget::class,
             Widgets\ActiveUsersTwentyEightDayWidget::class,
             Widgets\SessionsWidget::class,
             Widgets\SessionsDurationWidget::class,

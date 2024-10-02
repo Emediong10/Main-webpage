@@ -13,6 +13,7 @@
         "bezhansalleh/filament-google-analytics": "^2.0",
         "creagia/filament-code-field": "^2.0",
         "filament/filament": "^3.0-stable",
+        "graham-campbell/markdown": "^15.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
@@ -20,6 +21,7 @@
         "ryangjchandler/filament-navigation": "dev-main",
         "solution-forest/filament-access-management": "^2.0",
         "spatie/laravel-permission": "^5.11",
+        "tomatophp/filament-browser": "^1.0",
         "z3d0x/filament-fabricator": "^2.0"
     },
     "require-dev": {

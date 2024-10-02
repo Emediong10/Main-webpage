@@ -56,7 +56,7 @@
 
 
 
-                        <div class="mb-4 form-group">
+                        {{-- <div class="mb-4 form-group">
                             <label>upload your testimony Picture</label>
                             <input type="file" wire:model="image" class="file-loading form-select required" data-show-preview="false" />
                             @if ($image)
@@ -65,14 +65,54 @@
                         @endif
                         </div>
 
-                        <div class="mb-4 form-group">
-                            <input class="form-check-input" type="checkbox" wire:model='can_post' value="" aria-label="...">
-                            <label for="inlineRadio1">Do you want us to post your testimony as a source of inspiration to everyone?</label>
-                          </div>
 
                            <button type="submit" class="btn btn-lg" style="background-color:#215312; border-color: #28a745; color: white;">
-                            Submit here
+                            Submit
+                        </button> --}}
+
+                        {{-- <div class="mb-4 form-group">
+                            <label>Upload your image</label>
+                            <input type="file" wire:model.live="image" class="file-loading form-select required" data-show-preview="false" />
+                            @if ($image)
+                                <img src="{{ $image->temporaryUrl() }}" width="1000" height="600"  height="600">
+                            @endif
+                        </div> --}}
+
+                        <div class="mb-4 form-group">
+                            <input class="form-check-input" type="checkbox" wire:model='can_post' value="" aria-label="...">
+                            <label for="inlineRadio1">Do you want us to post your testimony as a source of inspiration to others?</label>
+                          </div>
+
+
+                        {{-- <button type="submit" class="btn btn-lg" style="background-color:#215312; border-color: #28a745; color: white;"
+                                wire:loading.attr="disabled" wire:target="image">
+                                <span wire:loading.remove wire:target="image">Submit</span>
+                                <span wire:loading wire:target='image' >Loading Image...</span>
+                        </button> --}}
+
+
+
+                        <div class="mb-4 form-group">
+                            <label>Upload your image</label>
+                            <input type="file" wire:model.live="image" class="file-loading form-select required" data-show-preview="false" />
+
+                            @if ($image)
+                                {{-- <div wire:loading wire:target="image">Loading Image...</div> --}}
+                                <img id="imagePreview" src="{{ $image->temporaryUrl() }}" width="1000" height="600"
+                                    {{-- style="display: none;"
+                                    wire:loading.attr="src" --}}
+                                />
+                            @endif
+                        </div>
+
+                        <button type="submit" class="btn btn-lg" style="background-color:#215312; border-color: #28a745; color: white;"
+                            wire:loading.attr="disabled" wire:target="image">
+                            <span wire:loading.remove wire:target="image">Submit</span><span wire:loading wire:target="image">Loading Image...</span>
                         </button>
+
+
+
+
 
                        </form>
                    </div>
@@ -83,3 +123,26 @@
 </div>
 
 
+{{-- <script>
+    document.addEventListener('livewire:load', function () {
+        Livewire.hook('element.updated', (el, component) => {
+            if (el.querySelector('[wire\\:loading]')) {
+                setTimeout(() => {
+                    let loadingText = document.getElementById('loadingText');
+                    if (loadingText) {
+                        loadingText.style.display = 'block';
+                    }
+                }, Math.floor(Math.random() * 30000)); // Random delay up to 3 seconds
+            }
+        });
+    });
+</script> --}}
+<script>
+    document.addEventListener('livewire:load', function () {
+        Livewire.on('imageUploaded', function () {
+            setTimeout(() => {
+                document.getElementById('imagePreview').style.display = 'block';
+            }, 2000); // 2-second delay
+        });
+    });
+</script>

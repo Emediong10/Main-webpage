@@ -49,55 +49,13 @@
                         </ul>
                     </div>
                     <div class="entry-content">
-                        {!! $event->content !!}
+                        {!! Str::markdown($event->content)!!}
                     </div>
                 </div>
             </div>
 
         </div><!-- #posts end -->
 
-        <div id="comments" class="post-block post-comments">
-
-            <h3 class="text-color-dark text-capitalize font-weight-bold text-5 m-0 mb-3 mt-5">Leave a Reply</h3>
-
-            <form class="p-4 rounded bg-color-grey" action="/" method="POST">
-                <div class="p-2">
-                    <div class="row">
-                        <div class="form-group col-lg-6">
-                            <label class="form-label required mb-1 font-weight-bold text-dark">Full Name</label>
-                            <input type="text" value="" data-msg-required="Please enter your name."
-                                maxlength="100" class="form-control py-3 px-3 border-0 box-shadow-none" name="name"
-                                id="name" required>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <label class="form-label required mb-1 font-weight-bold text-dark">Email Address</label>
-                            <input type="email" value="" data-msg-required="Please enter your email address."
-                                data-msg-email="Please enter a valid email address." maxlength="100"
-                                class="form-control py-3 px-3 border-0 box-shadow-none" name="email" id="email"
-                                required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col">
-                            <label class="form-label required mb-1 font-weight-bold text-dark">Comment</label>
-                            <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8"
-                                class="form-control p-3 border-0 box-shadow-none" name="message" id="message" required></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col mb-0">
-                            <button type="submit"
-                                class="btn btn-secondary border-0 font-weight-bold text-3 btn-px-5 py-3"
-                                data-loading-text="Loading..." data-cursor-effect-hover="plus"
-                                data-cursor-effect-hover-color="light">
-                                <span>Post Comment</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-
-        </div>
 
     </div>
     </div>

@@ -1,4 +1,4 @@
-@if(!empty(site_config('site_logo')) && site_config('site_logo')!=null)
+ @if(!empty(site_config('site_logo')) && site_config('site_logo')!=null)
 <div class="aspect-video w-64">
   <x-curator-glider
       class="img-responsive img-fullwidth h-8 w-10"

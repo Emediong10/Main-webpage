@@ -45,7 +45,10 @@ class EventResource extends Resource
         return $form
             ->schema([
                 Card::make()->schema([
-                    TextInput::make('title')->required()->unique(function($context){
+                    TextInput::make('title')
+                    ->required()
+                    ->maxLength(40)
+                    ->unique(function($context){
                         if($context==="edit")
                         {
                             return false;
@@ -61,7 +64,7 @@ class EventResource extends Resource
                     ->live(onBlur: true)
                     ->label('News Title'),
                     TextInput::make('slug')
-                    ->disabled()
+                    // ->disabled()
                     ->dehydrated(),
 
                     Select::make('event_type_id')
@@ -70,16 +73,22 @@ class EventResource extends Resource
                     ->searchable()
                     ->options(EventType::all()->pluck('name', 'id')),
 
-                    TextArea::make('content')->label('News Content')->required(),
+                   MarkdownEditor::make('content')->label('News Content')->required(),
                     CuratorPicker::make('image_id')
                          ->label('Featured Image')
-                         ->relationship('image', 'id'),
+                         ->relationship('image', 'id'
+                         )->required()
+                        //  ->maxSize(10)
+
+                         ,
                     TextInput::make('author')->label('News Author'),
                     TextArea::make('meta_description')
-                       ->label('Meta Description'),
+                       ->label('Meta Description')->required(),
 
                     Toggle::make('is_general')->helperText('Should this events be accessbile to the Home Page or other News snippet pages'),
-                    Toggle::make('active')->live()->default(false)
+                    Toggle::make('active')
+                    ->live()
+                    ->default(false)
                     ->helperText('Inactive Events will not be displayed and will be automatically archived'),
 
                     Select::make('event_status')
@@ -152,6 +161,7 @@ class EventResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('title')->label('Event Title'),
+                TextColumn::make('event_type.name')->label('Event Type'),
                 TextColumn::make('author')->label('Event Author')->icon('heroicon-m-user'),
                 TextColumn::make('slug')->label('URL Slug'),
                 CuratorColumn::make('image.id')
@@ -169,8 +179,8 @@ class EventResource extends Resource
                         return "NULL";
                     }
                }),
-               TextColumn::make("start_date"),
-               TextColumn::make('end_date'),
+               TextColumn::make("start_date")->required(),
+               TextColumn::make('end_date')->required(),
                TextColumn::make('start_time')->dateTime('h:i:A'),
                TextColumn::make('end_time')->dateTime('h:i:A'),
                IconColumn::make('is_general')->options([

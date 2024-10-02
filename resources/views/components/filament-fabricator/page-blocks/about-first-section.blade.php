@@ -5,7 +5,7 @@
     'tab1_title',
     'tab2_name',
     'tab2_title',
-    'image',
+    'about_image',
     'tapping',
     'tab2_position',
     'tab3_title',
@@ -75,7 +75,7 @@
                             @foreach ($tapping as $item)
                                 <div class="team">
                                     <div class="team-image">
-                                        <img src="{{ url('storage', $item['image']) }}" alt="ALIVE Nigeria">
+                                        <img src="{{ url('storage',$item['about_image'])}}" alt="ALIVE Nigeria">
                                     </div>
                                     <div class="team-desc">
                                         <div class="team-title">
