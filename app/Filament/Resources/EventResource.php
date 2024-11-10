@@ -179,8 +179,8 @@ class EventResource extends Resource
                         return "NULL";
                     }
                }),
-               TextColumn::make("start_date")->required(),
-               TextColumn::make('end_date')->required(),
+               TextColumn::make("start_date"),
+               TextColumn::make('end_date'),
                TextColumn::make('start_time')->dateTime('h:i:A'),
                TextColumn::make('end_time')->dateTime('h:i:A'),
                IconColumn::make('is_general')->options([

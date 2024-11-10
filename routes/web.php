@@ -3,6 +3,9 @@
 use App\Models\Event;
 use App\Models\Testimony;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\TemplateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('preview-template/{template}',[App\Http\Controllers\TemplateController::class,'preview'])->name('preview-template');
 Route::get('preview-page/{page}',[App\Http\Controllers\TemplateController::class,'preview_page'])->name('preview-page');
 Route::get('preview-info/{info}',[App\Http\Controllers\InfoController::class,'preview_info'])->name('preview-info');
+
+
+Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');
+
+Route::get('/getform', [App\Http\Controllers\PaymentController::class, 'payment'])->name('getform');
+
+Route::get('/failed-payment', [App\Http\Controllers\PaymentController::class, 'failed'])->name('failed-payment');
+Route::get('/successful-payment', [App\Http\Controllers\PaymentController::class, 'success'])->name('successful-payment');
+
+Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
+
 
 Route::redirect('canvas','/');
 

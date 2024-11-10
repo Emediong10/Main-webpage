@@ -16,10 +16,11 @@ use TomatoPHP\FilamentBrowser\FilamentBrowserPlugin;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Z3d0X\FilamentFabricator\FilamentFabricatorPlugin;
 use RyanChandler\FilamentNavigation\FilamentNavigation;
 use Filament\Http\Middleware\DisableBladeIconComponents;
-use Filament\Http\Middleware\DispatchServingFilamentEvent;
 //use  Z3d0X\FilamentFabricator\FilamentFabricatorPlugin;
+use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 
@@ -73,7 +74,7 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugins([
-                //FilamentFabricatorPlugin::make(),
+                FilamentFabricatorPlugin::make(),
                CuratorPlugin::make()
                 ->label('Media')
                 ->pluralLabel('Media')
@@ -85,7 +86,8 @@ class AdminPanelProvider extends PanelProvider
 
             ])
             ->plugin(
-               FilamentBrowserPlugin::make()
+               FilamentBrowserPlugin::make(),
+            //   FilamentFabricatorPlugin::make(),
             );
     }
 }

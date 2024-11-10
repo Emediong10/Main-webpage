@@ -8,7 +8,7 @@
         <section id="page-title">
 
             <div class="container clearfix">
-                <h1>Read the {{ $event->title }} news below</h1>
+                <h1>Read the {{ $event->title }} Event below</h1>
 
             </div>
 
@@ -23,32 +23,35 @@
                 <div class="entry col-12">
                     <div class="grid-inner">
                         <div class="entry-image">
-                            <img src="{{ asset('storage/' . $event->image->path) }}" alt="{{ $event->image->alt }}">
+                            <img  width="600" height="100" src="{{ asset('storage/' . $event->image->path) }}" alt="{{ $event->image->alt }}">
                         </div>
-                        <div class="entry-title">
+                        {{-- <div class="entry-title">
                             <h2>{{ ucfirst($event->title) }}</h2>
-                        </div>
+                        </div> --}}
 
                         <ul>
-                            <li>
+                            
                                 <div class="entry-meta">
+                                    <li>
                                     <div id="event-countdown2" class="countdown"
                                         data-year="{{ \Carbon\Carbon::parse($event->end_date)->format('Y') }}"
                                         data-month="{{ \Carbon\Carbon::parse($event->end_date)->format('m') }}"
-                                        data-day="{{ \Carbon\Carbon::parse($event->end_date)->format('d') }}">></div>
+                                        data-day="{{ \Carbon\Carbon::parse($event->end_date)->format('d') }}"></div>
+                                 </li>
                                 </div>
-                            </li><br>
-                            @if ($event->author != null)
+                           <br>
+                            <div class="entry-meta" id="event-countdown2">
+                                @if ($event->author != null)
                                 <li><i class="icon-user"></i> By:{{ $event->author ? $event->author : 'Admin' }}</li>
                             @endif
-                                <li><i class="icon-folder-open"></i><time>Time: <span>{{ $event->start_time }} -
-                                            {{ $event->end_time }}</span> </time></li>
-                                {{-- <li><i class="icon-folder-open"></i> <time></time></li> --}}
-                                <li><i class="icon-comments"></i>Venue:{{ $event->venue }}</li>
-                                {{-- <li><a href="#"><i class="icon-camera-retro"></i></a></li> --}}
+                                {{-- <li><i class="icon-folder-open"></i><time>Time: {{ $event->end_time }}</span> </time></li> --}}
+                                <li><i class="icon-comment"></i>Venue:{{ $event->venue }}</li> 
+                            </div>
+                           
                         </ul>
                     </div>
-                    <div class="entry-content">
+                    <div class="entry-content entry-title">
+                        <h2 class="center"><strong>{{ ucfirst($event->title) }}</strong></h2>
                         {!! Str::markdown($event->content)!!}
                     </div>
                 </div>

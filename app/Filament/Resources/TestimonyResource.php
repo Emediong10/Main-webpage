@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
 // use Filament\Forms\Components\ToggleButtons;
 
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
@@ -22,8 +23,8 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Columns\BooleanColumn;
+use Filament\Forms\Components\MarkdownEditor;
 use App\Filament\Resources\TestimonyResource\Pages;
-use Filament\Forms\Components\Toggle;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\TestimonyResource\RelationManagers;
 
@@ -34,6 +35,11 @@ class TestimonyResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-envelope-open';
 
     protected static ?string $navigationGroup = 'Event';
+
+    public static function getNavigationBadge(): ?string
+{
+    return static::getModel()::count();
+}
 
     protected function getRedirectUrl(): string
     {
@@ -64,7 +70,7 @@ class TestimonyResource extends Resource
                             ->image()
                             ->directory('testimonies')
                             ->downloadable(),
-                            Textarea::make('comment'),
+                            MarkdownEditor::make('comment'),
                             Toggle::make('active')
                                 ->onColor('success')
                                 ->offColor('danger')

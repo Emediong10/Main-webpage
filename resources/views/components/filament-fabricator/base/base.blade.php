@@ -22,7 +22,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="description" content="{{ $meta_description != null ? $meta_description : $title }}" />
-    <meta name="keywords" content="{{ !is_null($seo_tags) ? implode(',', $seo_tags) : null }}" />
+   <meta name="keywords" content="{{ is_array($seo_tags) ? implode(',', $seo_tags) : $seo_tags }}" />
+
     <meta name="author"
         content="{{ site_config('site_author') != null ? site_config('site_author') : 'Site Author' }}" />
 
@@ -54,6 +55,7 @@
             <link rel="stylesheet" href="{{ $path }}" />
         @endif
     @endforeach
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all">
 
     {{ \Filament\Support\Facades\FilamentView::renderHook('filament-fabricator::head.end') }}
 </head>

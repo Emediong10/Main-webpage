@@ -11,10 +11,10 @@
 
 ])
 <div class="px-4 py-4 md:py-8">
-    <div class="max-w-7xl mx-auto">
+    <div class="mx-auto max-w-7xl">
         <div class="container clearfix topmargin-lg">
             <div class="mx-auto heading-block center border-bottom-0" style="max-width: 640px">
-                <h3 class="nott font-secondary fw-normal" style="font-size: 36px;">{{ $title }}</h3>
+                <h3 class="nott font-secondary fw-normal" style="font-size: 36px;"><strong>{{ $title }}</strong></h3>
                 <span>{{ $sub_title }}</span>
             </div>
             <div class="clearfix row contact-properties">

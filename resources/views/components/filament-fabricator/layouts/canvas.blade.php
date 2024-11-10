@@ -1,14 +1,16 @@
 @props(['page','preview'])
-<x-filament-fabricator.base.base :title="$page->title" :meta_description="$page->meta_description ? $page->meta_description: ($page->description?$page->description:null)" :seo_tags="$page->seo_tags">
+
+
+    <x-filament-fabricator.base.base 
+    :title="$page->title ?? 'Default Title'" 
+    :meta_description="$page->meta_description ?? ($page->description ?? 'Default Meta Description')" 
+    :seo_tags="$page->seo_tags ?? 'Default SEO Tags'">
+
     {{-- Header Here --}}
 
 	@php
     \Z3d0X\FilamentFabricator\Facades\FilamentFabricator::registerStyles([
-        '<link rel="preconnect" href="https://fonts.googleapis.com">',
-        '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-        '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">',
-        '<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&display=swap" rel="stylesheet" type="text/css" />',
-       // ' <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all">',
+        
         '<link href="https://api.fontshare.com/v2/css?f[]=sentient@400,700,201,301,200,501,500,300,2,1,401,701&display=swap" rel="stylesheet">',
          asset('assets/css/bootstrap.css'),
         asset('assets/style.css'),
@@ -43,10 +45,11 @@
         asset('assets/css/colors.php?color=AC4147'),
 
 
-
+       
 
     ]);
 @endphp
+
 
 
 	 @if(site_config('g-tag') == null)
@@ -55,7 +58,8 @@
     @if(isset($preview) && $preview==1)
     <x-filament-fabricator::page-blocks :blocks="$page->preview_blocks" />
     @else
-    <x-filament-fabricator::page-blocks :blocks="$page->blocks" />
+   <x-filament-fabricator::page-blocks :blocks="$page->blocks ?? []" />
+
     @endif
 
     <!-- JavaScripts
@@ -71,7 +75,20 @@
 	<script src="{{ asset('assets/js/functions.js')}}"></script>
 
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&display=swap" rel="stylesheet" type="text/css" /> --}}
+     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaT5Y9C4Xtdbb+FphzZtfB3NY9+EZI0Yt+IGbhgP8vYoBU/7STl8NEnmHRM" crossorigin="anonymous"> --}}
+    
+    
 
+     @yield('payment')
+
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 

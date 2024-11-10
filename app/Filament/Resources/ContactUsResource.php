@@ -24,6 +24,11 @@ class ContactUsResource extends Resource
 
     protected static ?string $model = ContactUs::class;
 
+    public static function getNavigationBadge(): ?string
+{
+    return static::getModel()::count();
+}
+
     protected static ?string $navigationGroup = 'Event';
 
     protected function getRedirectUrl(): string
