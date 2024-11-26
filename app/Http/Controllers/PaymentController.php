@@ -84,11 +84,11 @@ class PaymentController extends Controller
             $payment->trans_status = $paymentDetails['data']['status'];
 
             if ($payment->save()) {
-                return redirect('/successful-payment')->with('message', 'Transaction Successful');
+                return redirect('/payment-success/3f9d7b2c8')->with('message', 'Transaction Successful');
             }
         }
 
-        return redirect('/failed-payment')->with('error', 'Transaction failed or data could not be saved');
+        return redirect('/failed-payment/3f9d7b2c8')->with('error', 'Transaction failed or data could not be saved');
     }
     
 

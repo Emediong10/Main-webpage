@@ -137,7 +137,7 @@
                         data-whitespace="['nowrap','nowrap','normal','normal']"
 
                         data-type="text"
-                        data-typewriter='{"lines":"Rediscover%20the%20wonders%20that%20await%20you, Come%20back%20and%20explore%20the%20latest%20updates!,God%20bless%20of%20you%20keep%20visiting.","enabled":"on","speed":"100","delays":"1%7C100","looped":"on","cursorType":"one","blinking":"on","word_delay":"off","sequenced":"on","hide_cursor":"off","start_delay":"1500","newline_delay":"1000","deletion_speed":"20","deletion_delay":"1000","blinking_speed":"500","linebreak_delay":"60","cursor_type":"two","background":"off"}'
+                        data-typewriter='{"lines":"Rediscover%20the%20wonders%20that%20await%20you, Come%20back%20and%20explore%20the%20latest%20updates!,God%20bless%20you%20keep%20visiting.","enabled":"on","speed":"100","delays":"1%7C100","looped":"on","cursorType":"one","blinking":"on","word_delay":"off","sequenced":"on","hide_cursor":"off","start_delay":"1500","newline_delay":"1000","deletion_speed":"20","deletion_delay":"1000","blinking_speed":"500","linebreak_delay":"60","cursor_type":"two","background":"off"}'
                         data-responsive_offset="on"
 
                         data-frames='[{"from":"y:50px;sX:1;sY:1;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'

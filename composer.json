@@ -12,7 +12,7 @@
         "awcodes/filament-curator": "^3.4",
         "bezhansalleh/filament-google-analytics": "^2.0",
         "creagia/filament-code-field": "^2.0",
-        "filament/filament": "^3.0-stable",
+        "filament/filament": "^3.1",
         "graham-campbell/markdown": "^15.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",

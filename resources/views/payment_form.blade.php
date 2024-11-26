@@ -1,6 +1,3 @@
-{{-- @aware(['page']) --}}
-{{-- @props(['page']) --}}
-{{-- @include('components.filament-fabricator.layouts.canvas') --}}
 
 @extends('components.filament-fabricator.layouts.canvas')
 <title>Payment</title>

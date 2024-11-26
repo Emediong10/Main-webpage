@@ -28,8 +28,8 @@ Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToG
 
 Route::get('/getform', [App\Http\Controllers\PaymentController::class, 'payment'])->name('getform');
 
-Route::get('/failed-payment', [App\Http\Controllers\PaymentController::class, 'failed'])->name('failed-payment');
-Route::get('/successful-payment', [App\Http\Controllers\PaymentController::class, 'success'])->name('successful-payment');
+Route::get('/failed-payment/3f9d7b2c8', [App\Http\Controllers\PaymentController::class, 'failed'])->name('failed-payment');
+Route::get('/payment-success/3f9d7b2c8', [App\Http\Controllers\PaymentController::class, 'success'])->name('payment-successful');
 
 Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
 
