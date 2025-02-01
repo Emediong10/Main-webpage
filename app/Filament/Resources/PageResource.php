@@ -89,7 +89,7 @@ class PageResource extends Resource
                                 'blocks' => $blocks,
                             ];
 
-                            $livewire->form->fill($newState);
+                            $livewire->form->fill($newState); 
                         }),
                         Group::make()->schema(FilamentFabricator::getSchemaSlot('blocks.before')),
 

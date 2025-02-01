@@ -21,12 +21,14 @@ class PaymentResource extends Resource
 {
     protected static ?string $model = Payment::class;
 
+    protected static ?string $navigationGroup = 'Payment Section';
+
     public static function getNavigationBadge(): ?string
 {
     return static::getModel()::count();
 }
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
 
     public static function form(Form $form): Form
     {
@@ -52,7 +54,7 @@ class PaymentResource extends Resource
         return $table
             ->columns([
                TextColumn::make('first_name')
-               ->searchable()->sortable() 
+               ->searchable()->sortable()
                ->copyable()
                ->copyMessage('Firstname copied')
                ->copyMessageDuration(1500),
@@ -62,7 +64,7 @@ class PaymentResource extends Resource
                ->copyable()
                ->copyMessage('Lastname copied')
                ->copyMessageDuration(1500),
-               
+
                TextColumn::make('email')
               ->searchable()
               ->sortable()
@@ -85,7 +87,11 @@ class PaymentResource extends Resource
                 ->copyable()
                ->copyMessage('Transaction reference copied')
                ->copyMessageDuration(1500),
-            
+               TextColumn::make('currency')
+               ->label('transaction currency')
+              ->searchable()
+              ->sortable(),
+
      TextColumn::make('trans_status')
     ->label('Transaction Status')
    ->sortable()
@@ -93,18 +99,18 @@ class PaymentResource extends Resource
         return $state === 'success' ? 'Successful Transaction' : 'Failed Transaction';
     })
     ->icon(function ($state) {
-        return $state === 'success' 
-            ? 'heroicon-o-check-badge' 
+        return $state === 'success'
+            ? 'heroicon-o-check-badge'
             : 'heroicon-o-x-circle';
     })
     ->iconColor(function ($state) {
-        return $state === 'success' 
-            ? 'success' 
+        return $state === 'success'
+            ? 'success'
             : 'danger';
     })
     ->color(function ($state) {
-        return $state === 'success' 
-            ? 'success' 
+        return $state === 'success'
+            ? 'success'
             : 'danger';
     }),
  TextColumn::make('description')->searchable()->sortable(),

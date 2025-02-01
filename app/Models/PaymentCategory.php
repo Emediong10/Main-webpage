@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Payment extends Model
+class PaymentCategory extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function payable()
+    
+    public function paymentType()
     {
-        return $this->morphTo();
+        return $this->belongsTo(PaymentType::class);
     }
 }

@@ -25,7 +25,7 @@
                 <div class="mx-auto heading-block center border-bottom-0 bottommargin topmargin-sm" style="max-width: 640px">
                     {{-- <h3 class="nott font-secondary fw-normal" style="font-size: 36px;">About ALIVE</h3> --}}
                    <h2>{{ $title }} </span></h2>
-                        <span>{{ $sub_title }}</span>
+                        {{-- <span>{{ $sub_title }}</span> --}}
                 </div>
 
                 <div class="clearfix row">
@@ -35,7 +35,7 @@
                         <div class="col-lg-3 col-md-6 bottommargin-sm">
                             <div class="feature-box media-box fbox-bg">
                                 <div class="fbox-media">
-                                    <img src="{{ asset('storage/'.$image1)}}" alt="{{ $title }}">
+                                    <img style="height:200px" width="500px" src="{{ asset('storage/'.$image1)}}" alt="{{ $title }}">
                                 </div>
                                 <div class="border-0 fbox-content">
                                     <h3 class="nott ls0 fw-semibold">{{ $title1 }}<span class="subtitle fw-light ls0">{{ $sub_title1 }}</span></h3>
@@ -47,7 +47,7 @@
                         <div class="col-lg-3 col-md-6 bottommargin-sm">
                             <div class="feature-box media-box fbox-bg">
                                 <div class="fbox-media">
-                                    <img src="{{ asset('storage/'.$image2)}}" alt="Featured Box Image">
+                                    <img style="height:200px" width="500px" src="{{ asset('storage/'.$image2)}}" alt="Featured Box Image">
                                 </div>
                                 <div class="border-0 fbox-content">
                                     <h3 class="nott ls0 fw-semibold">{{ $title2 }}<span class="subtitle fw-light ls0">{{ $sub_title2 }}
@@ -61,7 +61,7 @@
                         <div class="col-lg-3 col-md-6 bottommargin-sm">
                             <div class="feature-box media-box fbox-bg">
                                 <div class="fbox-media">
-                                    <img src="{{ asset('storage/'.$image3)}}" alt="Featured Box Image">
+                                    <img style="height:200px" width="500px" src="{{ asset('storage/'.$image3)}}" alt="Featured Box Image">
                                 </div>
                                 <div class="border-0 fbox-content">
                                     <h3 class="nott ls0 fw-semibold">{{ $title3 }}<span class="subtitle fw-light ls0">{{ $sub_title3 }}</span></h3>
@@ -73,7 +73,7 @@
                         <div class="col-lg-3 col-md-6 bottommargin-sm">
                             <div class="feature-box media-box fbox-bg">
                                 <div class="fbox-media">
-                                   <img src="{{asset('storage/'.$image4)}}" alt="Featured Box Image">
+                                   <img style="height:200px" width="500px" src="{{asset('storage/'.$image4)}}" alt="Featured Box Image">
                                 </div>
                                 <div class="border-0 fbox-content">
                                     <h3 class="nott ls0 fw-semibold">{{ $title4 }}<span class="subtitle fw-light ls0">{{ $sub_title4 }}</span></h3>

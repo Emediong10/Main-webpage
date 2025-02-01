@@ -31,13 +31,13 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->id('admin')
-            ->path('admin')
+            ->id('web-admin')
+            ->path('web-admin')
             ->login()
             ->colors([
                 'primary' => Color::Green,
             ])
-          
+
             ->favicon(asset('images/Aliveng.png'))
             ->plugin(FilamentNavigation::make())
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')

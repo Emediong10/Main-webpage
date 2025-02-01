@@ -12,28 +12,7 @@
     'hero_sub_title3',
 
 	])
-<!-- #Slider Starts -->
-{{-- <section id="slider" class="slider-element swiper_wrapper" data-autoplay="6000" data-speed="800" data-loop="true" data-grab="true" data-effect="fade" data-arrow="false" style="height: 600px;">
-    <div class="swiper-container swiper-parent">
-		<div class="swiper-wrapper col-12">
-			@foreach( $header as $item )
-			<div class="swiper-slide dark">
-					<div class="container">
-					<div class="slider-caption @if(empty($layout)) slider-caption-left @elseif(!empty($layout)) @if($layout == 'left') slider-caption-left @elseif($layout == 'right') slider-caption-right @endif  @endif">
-						<div class="margin-top">
-								<h2 class="mt-5 text-white bottommargin-sm col-12">{{ $item['title'] }}</h2>
-							<div class="h5 font-secondary">{{ $item['sub_title'] }}</div>
-							</div>
-					</div>
-				</div>
-				<div class="swiper-slide-bg" style="background-image: linear-gradient(to bottom, rgba(3, 3, 3, 0.212), rgba(0, 0, 0, 0.425)),url({{ asset('storage/'.$item['image']) }});"></div>
-				</div>
-			@endforeach
-			</div>
-		<div class="swiper-pagination"></div>
-	</div>
- </section> --}}
-<!-- #Slider End -->
+
 
 <section id="slider" class="h-auto slider-element revslider-wrap include-header">
 
@@ -137,7 +116,7 @@
                         data-whitespace="['nowrap','nowrap','normal','normal']"
 
                         data-type="text"
-                        data-typewriter='{"lines":"Rediscover%20the%20wonders%20that%20await%20you, Come%20back%20and%20explore%20the%20latest%20updates!,God%20bless%20you%20keep%20visiting.","enabled":"on","speed":"100","delays":"1%7C100","looped":"on","cursorType":"one","blinking":"on","word_delay":"off","sequenced":"on","hide_cursor":"off","start_delay":"1500","newline_delay":"1000","deletion_speed":"20","deletion_delay":"1000","blinking_speed":"500","linebreak_delay":"60","cursor_type":"two","background":"off"}'
+                        data-typewriter='{"lines":"Jesus%20knows%20the%20circumstances%20of%20every%20soul,%20The%20greater%20the%20sinners%20guilt,%20the%20more%20he%20needs%20the%20Saviour., Bringing%20humanity%20to%20Christ%20is%20redemption,God%20bless%20you%20keep%20visiting.","enabled":"on","speed":"100","delays":"1%7C100","looped":"on","cursorType":"one","blinking":"on","word_delay":"off","sequenced":"on","hide_cursor":"off","start_delay":"1500","newline_delay":"1000","deletion_speed":"20","deletion_delay":"1000","blinking_speed":"500","linebreak_delay":"60","cursor_type":"two","background":"off"}'
                         data-responsive_offset="on"
 
                         data-frames='[{"from":"y:50px;sX:1;sY:1;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
@@ -234,7 +213,7 @@
                         data-whitespace="normal"
 
                         data-type="text"
-                        data-typewriter='{"lines":"Your%20journey%20on%20our%20website%20awaits—come%20and%20experience%20it%20again!,Christ%20brings%20hope%20and%20love%20to%20everyone.,In%20Christ,%20we%20find%20strength%20and%20salvation.","enabled":"on","speed":"60","delays":"1%7C100","looped":"on","cursorType":"one","blinking":"on","word_delay":"off","sequenced":"on","hide_cursor":"off","start_delay":"1500","newline_delay":"1000","deletion_speed":"20","deletion_delay":"1000","blinking_speed":"500","linebreak_delay":"60","cursor_type":"two","background":"off"}'
+                        data-typewriter='{"lines":"Jesus%20the%20worlds%20Redeemer%20stands%20between%20Satan%20and%20every%20soul%20And%20those%20who%20lay%20their%20sins%20upon%20Christ%20through%20faith%20in%20his%20righteousness%20will%20come%20off%20victorious.,Christ%20brings%20hope%20and%20love%20to%20everyone.,In%20Christ,%20we%20find%20strength%20and%20salvation.","enabled":"on","speed":"60","delays":"1%7C100","looped":"on","cursorType":"one","blinking":"on","word_delay":"off","sequenced":"on","hide_cursor":"off","start_delay":"1500","newline_delay":"1000","deletion_speed":"20","deletion_delay":"1000","blinking_speed":"500","linebreak_delay":"60","cursor_type":"two","background":"off"}'
                         data-responsive_offset="on"
 
                         data-frames='[{"from":"y:50px;sX:1;sY:1;opacity:0;","speed":2500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
