@@ -14,7 +14,7 @@
             <div class="slider-feature w-100">
                 <div class="row justify-content-center">
                     <div class="col-md-3 px-1">
-                        <a href="demo-nonprofit-about.html"
+                        <a href="#"
                             class="card center border-start-0 border-end-0 border-top-0 border-bottom border-bottom shadow py-3 rounded-0 fw-semibold text-uppercase ls1">
                             <div class="card-body">
                                 <i class="icon-line-align-center"></i>View Our Mission
@@ -22,7 +22,7 @@
                         </a>
                     </div>
                     <div class="col-md-3 px-1">
-                        <a href="demo-nonprofit-causes.html"
+                        <a href="#"
                             class="card center border-start-0 border-end-0 border-top-0 border-bottom border-bottom shadow py-3 rounded-0 fw-semibold text-uppercase ls1">
                             <div class="card-body">
                                 <i class="icon-line-umbrella"></i>Top Founders
@@ -30,7 +30,7 @@
                         </a>
                     </div>
                     <div class="col-md-3 px-1">
-                        <a href="demo-nonprofit-contact.html"
+                        <a href="#"
                             class="card center border-start-0 border-end-0 border-top-0 border-bottom border-bottom shadow py-3 rounded-0 fw-semibold text-uppercase ls1">
                             <div class="card-body">
                                 <i class="icon-line-mail"></i>Request a Quote
@@ -112,24 +112,7 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="w-100 position-relative">
-                <div class="donor-img d-flex align-items-center rounded parallax mx-auto shadow-sm w-100"
-                    data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -50px;"
-                    style="height: 500px; background: url('assets/images/cody-lannom-G95AReIh_Ko-unsplash.jpeg') no-repeat center center / cover">
-                </div>
-                <div class="card bg-white border-0 center py-sm-4 px-sm-5 p-2 shadow-sm"
-                    style="position: absolute; top: 50%; right: 80px; transform: translateY(-50%);">
-                    <div class="card-body">
-                        <div class="color h1 mb-3"><i class="icon-heart"></i></div>
-                        <small class="text-uppercase fw-normal ls2 text-muted mb-3 d-block">Our Top Donor</small>
-                        <h3 class="display-3 fw-bold mb-3 font-secondary">$2.4M</h3>
-                        <p class="text-uppercase fw-medium text-muted">:Raised</p>
-                        <a href="demo-nonprofit-causes-single.html" class="button-svg">View More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <div class="section bg-transparent mt-0 mb-4">
             <div class="container clearfix">
@@ -170,7 +153,7 @@
                    <!-- Image -->
                    {{-- <img src="{{ asset('storage/' . $item->image) }}"
                         alt="{{ $item->title ?? 'Payment Type Image' }}"
-                        
+
                         style="border-radius: 10px !important;"> --}}
 
                         <a href="">
@@ -185,10 +168,10 @@
                         style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important;">
 
                        <!-- Category -->
-                       <small class="text-uppercase fw-normal ls1 color mb-2 d-block"
+                       {{-- <small class="text-uppercase fw-normal ls1 color mb-2 d-block"
                               style="color: #555 !important;">
                            {{ $item->payment_category->name ?? 'Category Name' }}
-                       </small>
+                       </small> --}}
 
                        <!-- Title -->
                        <h3 class="mb-3">
@@ -222,25 +205,25 @@
                         <div class="card-body py-4 px-5">
                             <div class="d-flex justify-content-between">
                                 <div class="counter counter-inherit d-flex justify-content-between">
-                                    <strong class="me-1 ls0">Donated:</strong>₦<span data-from="0" data-to="{{ $item->amount_paid }}" data-refresh-interval="10" data-speed="1100" data-comma="true"></span>
+                                    <strong >Donated:</strong>₦<span data-from="0" data-to="{{ $item->amount_paid }}" data-refresh-interval="10" data-speed="1100" data-comma="true"></span>
                                 </div>
-                                <span><strong>Target:</strong>₦{{ number_format($item->target_amount) }}</span>
+                                {{-- <span><strong>Target:</strong>₦{{ number_format($item->target_amount) }}</span> --}}
                             </div>
                             <ul class="skills pt-3 mb-2">
                                 <li data-percent="{{ $progressPercentage }}">
                                     <div class="progress">
                                         <div class="progress-percent">
-                                            <div class="counter counter-inherit counter-instant"><span data-from="0" data-to="" data-refresh-interval="30" data-speed="100"></span></div>
+                                            <div class="counter counter-inherit counter-instant"><span data-from="0" data-to="" data-refresh-interval="30" data-speed="100">10</span></div>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                   
+
                     <div class="entry-content mt-0">
                        <!-- Description -->
-                       <p class="mb-4 text-black-50">{!! Illuminate\Support\Str::markdown(\Illuminate\Support\Str::limit($item->content, 150, '...')) !!}<a href="{{ $url_prefix }}/{{ $item->slug }}">Read more</a></p> 
+                       <p class="mb-4 text-black-50">{!! Illuminate\Support\Str::markdown(\Illuminate\Support\Str::limit($item->content, 150, '...')) !!}<a href="{{ $url_prefix }}/{{ $item->slug }}">Read more</a></p>
                     </div>
                        <!-- Donate Button -->
                        <a href="{{ route('getform', ['description' => $item->title]) }}"
@@ -256,7 +239,7 @@
 
             </div>
 
-         
+
 
 
 

@@ -19,7 +19,7 @@ class PaymentController extends Controller
         try {
             $request->validate([
                 'email' => 'required|email',
-                'amount' => 'required|numeric|min:1',
+                'amount' => 'required|numeric|min:100',
                 'firstname' => 'required|string',
                 'lastname' => 'required|string',
                 // 'phone' => 'min:10|max:11',
@@ -37,10 +37,10 @@ class PaymentController extends Controller
             }
             // dd($data);
 
-           
+
             $data = [
                 'email' => $request->email,
-                'amount' => $request->amount * 100, 
+                'amount' => $request->amount * 100,
                 'reference' => Paystack::genTranxRef(),
                 'metadata' => json_encode([
                     'firstname' => $request->firstname,
@@ -63,7 +63,7 @@ class PaymentController extends Controller
         }
     }
 
-    
+
   public function handleGatewayCallback()
 {
     $paymentDetails = Paystack::getPaymentData();
@@ -71,7 +71,7 @@ class PaymentController extends Controller
     if ($paymentDetails['status'] && $paymentDetails['data']['status'] === 'success') {
         $metadata = $paymentDetails['data']['metadata'];
 
-        
+
         $payment = new Payment();
         $payment->first_name = $metadata['firstname'] ?? null;
         $payment->last_name = $metadata['lastname'] ?? null;
@@ -98,10 +98,10 @@ class PaymentController extends Controller
         if ($payment->save()) {
             if (!empty($payment->payment_type_id)) {
                 $paymentType = PaymentType::find($payment->payment_type_id);
-        
+
                 if ($paymentType) {
                     $paymentType->updateAmountPaid($payment->amount);
-                    return $this->success(); 
+                    return $this->success();
                 }
             }
         }

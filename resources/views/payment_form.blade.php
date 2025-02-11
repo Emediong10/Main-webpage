@@ -14,54 +14,58 @@
                             <label>Your First Name</label>
                             <input type="text" name="firstname" class="form-control" placeholder="Write your first name"
                                 required>
+                                <div style="color:red">{{ $errors->first('firstname') }}</div>
                         </div>
                         <div class="mb-4 col-md-6 form-group">
                             <label>Your Last Name</label>
                             <input type="text" name="lastname" class="form-control" placeholder="Write your last name"
                                 required>
+                                <div style="color:red">{{ $errors->first('lastname') }}</div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="mb-4 col-md-6 form-group">
                             <label>Your Email</label>
                             <input type="email" name="email" class="form-control" placeholder="example@gmail.com">
+                            <div style="color:red">{{ $errors->first('email') }}</div>
                         </div>
                         <div class="mb-4 col-md-6 form-group">
                             <label>Your Phone Number</label>
-                            <input 
-                                type="text" 
-                                id="phone" 
-                                name="phone" 
-                                class="form-control" 
+                            <input
+                                type="text"
+                                {{-- id="phone" --}}
+                                name="phone"
+                                class="form-control"
                                 placeholder="08012345678"
                             >
-                            <small id="phoneError" style="color: red; display: none;">Phone number must be exactly 11 digits.</small>
+
                         </div>
-                        
-                        
-                        
+
+
+
                     </div>
                     <div class="row">
                         <div class="mb-4 col-md-6 form-group">
                             <label>Amount</label>
                             <input type="number" name="amount" class="form-control" placeholder="Amount you want to pay"
                                 required>
+                                <div style="color:red">{{ $errors->first('amount') }}</div>
                         </div>
                         {{-- Blade Template Code --}}
                         <div class="mb-4 col-md-6 form-group">
                             <label>Payment Description</label>
                             @if (!empty(request('description')))
                             <!-- Read-only textarea for display -->
-                            <textarea type="text" name="description_display" id="description_display" 
-                                      class="form-control bg-light" placeholder="Please specify what you are paying for" 
+                            <textarea type="text" name="description_display" id="description_display"
+                                      class="form-control bg-light" placeholder="Please specify what you are paying for"
                                       readonly >
                                 {{ request('description') }}
                             </textarea>
-                            
+
                             <!-- Hidden input to store the actual value -->
                             <input type="hidden" name="description" value="{{ request('description') }}">
 
-                        
+
                                 {{-- Show the textarea for manual input --}}
                             @else
                                 <textarea type="text" name="description" id="description" class="form-control"
@@ -75,9 +79,9 @@
                     @php
                     $paymentType = \App\Models\PaymentType::where('title', request('description'))->first();
                 @endphp
-                
+
                 <input type="hidden" name="payment_type_id" value="{{ $paymentType ? $paymentType->id : '' }}">
-                
+
                     <input type="hidden" name="description_auto"
                         value="{{ (request('description'))}}">
                     <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">
@@ -98,18 +102,5 @@
             cursor: not-allowed; /* Show 'not-allowed' cursor */
         }
     </style>
-
-<script>
-    document.getElementById('phone').addEventListener('input', function () {
-        const phoneInput = this.value;
-        const phoneError = document.getElementById('phoneError');
-
-        if (phoneInput.length !== 11 || isNaN(phoneInput)) {
-            phoneError.style.display = 'block';
-        } else {
-            phoneError.style.display = 'none';
-        }
-    });
-</script>
 
 @endsection
