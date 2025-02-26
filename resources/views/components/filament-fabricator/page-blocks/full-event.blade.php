@@ -30,7 +30,7 @@
                         </div> --}}
 
                         <ul>
-                            
+
                                 <div class="entry-meta">
                                     <li>
                                     <div id="event-countdown2" class="countdown"
@@ -45,9 +45,9 @@
                                 <li><i class="icon-user"></i> By:{{ $event->author ? $event->author : 'Admin' }}</li>
                             @endif
                                 {{-- <li><i class="icon-folder-open"></i><time>Time: {{ $event->end_time }}</span> </time></li> --}}
-                                <li><i class="icon-comment"></i>Venue:{{ $event->venue }}</li> 
+                                <li><i class="icon-comment"></i>Venue:{{ $event->venue }}</li>
                             </div>
-                           
+
                         </ul>
                     </div>
                     <div class="entry-content entry-title">
@@ -62,4 +62,4 @@
 
     </div>
     </div>
-</section><!-- #content end -->
+</section>

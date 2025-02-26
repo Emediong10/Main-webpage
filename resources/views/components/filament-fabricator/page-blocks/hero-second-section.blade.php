@@ -19,7 +19,7 @@
 
 <div class="px-4 py-4 md:py-8">
     <div class="mx-auto max-w-7xl">
-        <div class="clearfix m-0 section" style="background-color: #eef2f5;">
+        <div class="clearfix m-0 section" style="background-color: #51575c;">
             <div class="container clearfix">
 
                 <div class="mx-auto heading-block center border-bottom-0 bottommargin topmargin-sm" style="max-width: 640px">
@@ -50,7 +50,7 @@
                                     <img style="height:200px" width="500px" src="{{ asset('storage/'.$image2)}}" alt="Featured Box Image">
                                 </div>
                                 <div class="border-0 fbox-content">
-                                    <h3 class="nott ls0 fw-semibold">{{ $title2 }}<span class="subtitle fw-light ls0">{{ $sub_title2 }}
+                                    <h3 class="nott ls0 fw-semibold">{{ $title2 }}<span class="subtitle fw-light ls0" style="color: black; !important" >{{ $sub_title2 }}
 
                                         </span></h3>
 

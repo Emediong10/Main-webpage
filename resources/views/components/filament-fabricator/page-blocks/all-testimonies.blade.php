@@ -6,11 +6,9 @@
         <div class="row g-4 align-items-end blog-cards">
             <div class="col-md-8">
                 <div class="p-3 pb-4">
-                    {{-- <div class="mb-4 overflow-hidden before-title text-border-right position-relative text-uppercase ls-3 text-smaller op-10 b-w-50">
-                        !!
-                    </div> --}}
+
                     <h3 class="mb-4 h2 font-secondary fw-bold lh-base">Read Testimonies Below</h3>
-                    {{-- <p class="mb-5">THE King of Glory</p> --}}
+                    
                 </div>
 
                 <div class="row">

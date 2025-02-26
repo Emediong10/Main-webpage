@@ -56,8 +56,8 @@
                             <label>Payment Description</label>
                             @if (!empty(request('description')))
                             <!-- Read-only textarea for display -->
-                            <textarea type="text" name="description_display" id="description_display"
-                                      class="form-control bg-light" placeholder="Please specify what you are paying for"
+                            <textarea type="text" name="description_display" 
+                                      class="form-control bg-light"
                                       readonly >
                                 {{ request('description') }}
                             </textarea>

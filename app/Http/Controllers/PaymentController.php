@@ -127,25 +127,6 @@ public function failed()
 }
 
 
-    /**
-     * Display payment success view.
-     */
-    // public function success()
-    // {
-    //     return view('payments.successful-payment');
-    // }
-
-    /**
-     * Display payment failed view.
-     */
-    // public function failed()
-    // {
-    //     return view('payments.failed-payment');
-    // }
-
-    /**
-     * Show payment form.
-     */
     public function paymentform()
     {
         $paymentTypes = PaymentType::all();

@@ -1,11 +1,15 @@
 @aware(['page'])
-@props(['affiliate_name', 'main_image', 'affiliate_link', 'affiliate', 'big_image', 'affiliate_title'])
+@props(['affiliate_name','header_title','header_subtitle','main_image', 'affiliate_link', 'affiliate', 'big_image', 'affiliate_title'])
 <div class="px-4 py-4 md:py-8">
     <div class="mx-auto max-w-7xl">
 
         <section id="content">
             <div class="content-wrap min-vh-100 d-flex align-items-center">
                 <div class="container clearfix">
+                    <div class="heading-block center border-bottom-0">
+                        <h2>{{ $header_title }}</h2>
+                        <span>{{ $header_subtitle }}</span>
+                    </div>
 
                     <div class="row block-card-9 col-mb-50">
 
