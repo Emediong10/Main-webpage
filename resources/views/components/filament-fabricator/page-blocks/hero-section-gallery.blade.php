@@ -24,7 +24,7 @@
          <div class="clearfix mb-0 section">
             <div class="mx-auto mb-0 heading-block center border-bottom-0" style="max-width: 640px">
                 <h3 class="nott font-secondary fw-normal" style="font-size: 36px;"><strong>{{$title}}</strong></h3>
-                <span>{{$sub_title}}</span>
+                <span> <strong>{{$sub_title}}</strong></span>
             </div>
         </div>
 

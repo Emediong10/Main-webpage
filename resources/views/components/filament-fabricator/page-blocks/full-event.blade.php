@@ -23,7 +23,7 @@
                 <div class="entry col-12">
                     <div class="grid-inner">
                         <div class="entry-image">
-                            <img  width="600" height="100" src="{{ asset('storage/' . $event->image->path) }}" alt="{{ $event->image->alt }}">
+                            <img  width="500" height="700" style="height: 600px !important;" src="{{ asset('storage/' . $event->image->path) }}" alt="{{ $event->image->alt }}">
                         </div>
                         {{-- <div class="entry-title">
                             <h2>{{ ucfirst($event->title) }}</h2>
@@ -40,13 +40,24 @@
                                  </li>
                                 </div>
                            <br>
-                            <div class="entry-meta" id="event-countdown2">
+                            {{-- <div class="entry-meta" id="event-countdown2">
                                 @if ($event->author != null)
                                 <li><i class="icon-user"></i> By:{{ $event->author ? $event->author : 'Admin' }}</li>
                             @endif
-                                {{-- <li><i class="icon-folder-open"></i><time>Time: {{ $event->end_time }}</span> </time></li> --}}
+
                                 <li><i class="icon-comment"></i>Venue:{{ $event->venue }}</li>
-                            </div>
+                            </div> --}}
+
+                            <div class="entry-meta">
+								<ul>
+									<li><i class="icon-calendar3"></i>{{ $event->created_at->diffForHumans() }} </li>
+                                    @if ($event->author != null)
+                                    <li><i class="icon-user"></i> By:{{ $event->author ? $event->author : 'Admin' }}</li>
+                                @endif
+                                <li><i class="icon-comments"></i>{{ $event->comments->count()  }} Comments</li>
+
+								</ul>
+							</div>
 
                         </ul>
                     </div>
@@ -54,7 +65,9 @@
                         <h2 class="center"><strong>{{ ucfirst($event->title) }}</strong></h2>
                         {!! Str::markdown($event->content)!!}
                     </div>
+                    @livewire('event-comment', ['event' => $event])
                 </div>
+
             </div>
 
         </div><!-- #posts end -->

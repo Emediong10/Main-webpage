@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Event;
+use App\Models\Comment;
 use Awcodes\Curator\Models\Media;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
@@ -48,5 +49,10 @@ class Event extends Model
         return $this->belongTo(User::class);
     }
 
-   
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+
 }

@@ -28,8 +28,8 @@
                         <div class="col-sm-6 center">
                             <div class="card h-translate-y-sm transform-ts">
                                 <x-curator-glider class="img-fluid card-img-top" :media="$item['image']" glide=""
-                                fallback="thumbnail" data-no-retina width="315" height="210"
-                                style="object-fit: cover;"/>
+                                    fallback="thumbnail" data-no-retina width="315" height="210"
+                                    style="object-fit: cover;" />
                                 <div class="p-4 card-body">
                                     <h5 class="mb-3 text-warning">
                                         {{ \Carbon\Carbon::createFromFormat('Y-m-d', $item['time'])->format('M d Y') }}
@@ -37,7 +37,7 @@
                                     <h3 class="mb-3 h5 lh-base color"><a href="{{ $item['link'] }}"
                                             title="{{ $item['title'] }}">{{ Illuminate\Support\Str::limit($item['title'], 15, '...') }}</a>
                                     </h3>
-                                    <p class="mb-4">{!!  Illuminate\Support\Str::markdown(Illuminate\Support\Str::limit($item['content'], 35, '...')) !!}</p>
+                                    <p class="mb-4">{!! Illuminate\Support\Str::markdown(Illuminate\Support\Str::limit($item['content'], 35, '...')) !!}</p>
                                     <a href="{{ $item['link'] }}">Read More <span
                                             class="mb-1 align-middle material-symbols-outlined"><i
                                                 class="icon icon-arrow-right"></i></span></a>
@@ -67,38 +67,39 @@
                             <div class="mt-1 mb-3 text-center">
                                 <a href="{{ $top_image['link'] }}" class="color">Read More <i
                                         class="icon icon-arrow-right"></i></a>
-                            </div> </div>
-
-
-                        </div>
-                        <div class="col-md-12 col-sm-6">
-                            <div class="card h-translate-y-sm transform-ts">
-                                <div class="p-4 card-body">
-                                    <h5 class="mb-3 text-warning">
-                                        {{ \Carbon\Carbon::createFromFormat('Y-m-d', $bottom_card['time'])->format('M d, Y') }}
-                                    </h5>
-                                    <h3 class="mb-3 h5 lh-base color"><a href="{{ $bottom_card['link'] }}"
-                                            title="{{ $bottom_card['title'] }}">{{ Illuminate\Support\Str::limit($bottom_card['title'], 15, '...') }}</a>
-                                    </h3>
-                                    <p class="mb-4">{!! Illuminate\Support\Str::markdown(Illuminate\Support\Str::limit($bottom_card['content'], 35, '...')) !!}</p>
-                                    <a href="{{ $bottom_card['link'] }}">Read More <span
-                                            class="mb-1 align-middle material-symbols-outlined"><i
-                                                class="icon icon-arrow-right"></i></span></a>
-                                </div>
                             </div>
                         </div>
 
+
                     </div>
+                    <div class="col-md-12 col-sm-6">
+                        <div class="card h-translate-y-sm transform-ts">
+                            <div class="p-4 card-body">
+                                <h5 class="mb-3 text-warning">
+                                    {{ \Carbon\Carbon::createFromFormat('Y-m-d', $bottom_card['time'])->format('M d, Y') }}
+                                </h5>
+                                <h3 class="mb-3 h5 lh-base color"><a href="{{ $bottom_card['link'] }}"
+                                        title="{{ $bottom_card['title'] }}">{{ Illuminate\Support\Str::limit($bottom_card['title'], 15, '...') }}</a>
+                                </h3>
+                                <p class="mb-4">{!! Illuminate\Support\Str::markdown(Illuminate\Support\Str::limit($bottom_card['content'], 35, '...')) !!}</p>
+                                <a href="{{ $bottom_card['link'] }}">Read More <span
+                                        class="mb-1 align-middle material-symbols-outlined"><i
+                                            class="icon icon-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div> <br>
-            @if ($data_source == 'db')
-                <div class="mb-4 text-center">
-                    @if ($model == 'News')
-                        <a href="/news" class="btn btn-primary btn-lg">More News</a>
-                    @elseif($model == 'Event')
-                        <a href="/events" style="background-color: green"  class="btn btn-success">More Events</a>
-                    @endif
-                </div>
-            @endif
-        </div>
-    </section>
+            </div>
+        </div> <br>
+        @if ($data_source == 'db')
+            <div class="mb-4 text-center">
+                @if ($model == 'News')
+                    <a href="/news" class="btn btn-primary btn-lg">More News</a>
+                @elseif($model == 'Event')
+                    <a href="/events" style="background-color: green" class="btn btn-success">More Events</a>
+                @endif
+            </div>
+        @endif
+    </div>
+</section>

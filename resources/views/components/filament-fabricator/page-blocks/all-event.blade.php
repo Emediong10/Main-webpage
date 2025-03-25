@@ -93,16 +93,27 @@
                                             </div>
                                         </div>
                                         <div class="portfolio-desc" style="background-color:rgb(219, 225, 231)">
-                                            <h3 class="mb-3 h5 lh-base color center"><a
-                                                    href="{{ $url_prefix }}/{{ $event->slug }}"><strong>{!! Str::limit($event['title'], 40, '...') !!}</strong></a>
-                                            </h3>
-                                            <p>{!! Illuminate\Support\Str::markdown(Illuminate\Support\Str::limit($event->content, 60, '...')) !!}</p>
-                                            <span><i class="far fa-clock"></i>Event Posted:
-                                                {{ \Carbon\Carbon::parse($event->created_at)->format('M d Y') }}</span>
-                                            <span class="mt-2 d-block center"><a href="{{ $url_prefix }}/{{ $event->slug }}"
-                                                    style="color: rgb(8, 61, 8)"
-                                                    class="btn btn-xs btn-light text-1 text-uppercase">Read More</a></span>
-                                        </div>
+                                             <div class="p-4">
+                                                <div class="entry-title title-sm">
+                                                    <h3 class="nott ls0 h5">
+                                                        <a href="{{ $url_prefix }}/{{ $event->slug }}">{{ $event['title'] }}</a>
+                                                    </h3>
+                                                </div>
+                                                <div class="entry-meta">
+                                                    <ul>
+                                                        <li><i class="icon-calendar3"></i> {{ date('d M Y', strtotime($event['created_at'])) }}</li>
+
+                                                        <li><i class="icon-comments"></i>{{ $event->comments ? $event->comments->count() : 0 }}</li>
+
+                                                    </ul>
+                                                </div>
+                                                <div class="mt-4 entry-content">
+                                                    <p class="mb-0">{!! \Illuminate\Support\Str::limit($event['content'], 130, '...') !!}
+                                                        <a href="{{ $url_prefix }}/{{ $event->slug }}" class="more-link">Read More</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            
                                     </div>
                                 </article>
                             @endif

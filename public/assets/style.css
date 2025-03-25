@@ -2656,7 +2656,7 @@ img.lazy:not([src]) {
 	position: relative;
 	width: 100%;
 	margin: 0px 0;
-	padding: 33px 0;
+	/* padding: 33px 0; */
 	background-color:rgba(8, 49, 255, 0.02) !important;
 	overflow: hidden;
 }
@@ -9589,7 +9589,7 @@ body:not(.device-touch) .button.button-full strong {
 	flex-wrap: wrap;
 	margin-left: -0.75rem;
 	margin-right: -0.75rem;
-	
+
 }
 
 .feature-box:first-child { margin-top: 0; }
@@ -11695,7 +11695,7 @@ body:not(.device-touch) .clients-grid .grid-item a {
 
 .testimonial {
 	position: relative;
-	padding: 20px;
+	padding: 0px;
 	background-color: #FFF;
 	border: 1px solid rgba(0,0,0,0.1);
 	border-radius: 5px;

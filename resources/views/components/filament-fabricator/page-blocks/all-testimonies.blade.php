@@ -1,91 +1,53 @@
 @aware(['page'])
 @props(['url_prefix', 'testimonies', 'news_pagination'])
 
-<section class="section" style="background-color: #e9ecef !important;">
-    <div class="container mw-md mt-lg-0">
-        <div class="row g-4 align-items-end blog-cards">
-            <div class="col-md-8">
-                <div class="p-3 pb-4">
 
-                    <h3 class="mb-4 h2 font-secondary fw-bold lh-base">Read Testimonies Below</h3>
-                    
-                </div>
 
-                <div class="row">
-                    @foreach ($testimonies as $news_item)
-                        <div class="col-sm-6">
-                            <div class="card h-translate-y-sm transform-ts">
-                                    <div class="p-4 card-body center">
-                                    <div class="testi-image">
-                                        <img src="{{ asset('storage/' . $news_item->image) }}" alt="{{ $news_item->image_alt }}">
-                                    </div>
-                                    <div class="p-4 card-body center">
-                                        <h2 class="mb-4">
-                                            {{ Illuminate\Support\Str::limit(strip_tags($news_item['subject']), 10, '...') }}
-                                        </h2>
-                                        <h4 class="inline">
-                                            <strong>BY: {{ Illuminate\Support\Str::limit(strip_tags($news_item['firstname']), 10, '...') }}</strong>
-                                        </h4>
+<section id="content"  style="background-color: #e9ecef !important;">
 
-                                        <h5 class="mb-3 h5 lh-base color">
-                                            {{ \Carbon\Carbon::parse($news_item->created_at)->format('M d Y') }}
-                                        </h5>
-                                        <a href="{{ $url_prefix }}/{{ $news_item->slug }}">Read this Story
-                                            <span class="mb-1 align-middle material-symbols-outlined">
-                                                <i class="icon icon-arrow-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+    <div class="content-wrap pb-0">
+        <div class="container mb-5">
+            <div class="p-3 pb-4">
+                <h1 class="mb-4 h2 font-secondary fw-bold lh-base">Read Testimonies Below</h1>
             </div>
-        </div>
-        <div class="line"></div>
-        <div class="center">
-            <a href="/testimony-form" class="button button-large button-border button-rounded">Upload your Testimony</a>
-        </div>
-    </div>
-</section>
-
-{{-- Optional Section --}}
-
-{{-- The code below is commented out but ready for future use.  --}}
-
-{{--
-<section id="content" style="background-color: rgb(191, 224, 182)">
-    <div class="content-wrap">
-        <div class="container clearfix">
-            <ul class="testimonials-grid grid-1 grid-md-2 grid-lg-3">
-                @foreach ($testimonies as $news_item)
-                    <li class="grid-item">
-                        <div class="testimonial">
-                            <div class="testi-image">
-                                <a href="{{ $url_prefix }}/{{ $news_item->slug }}">
-                                    <img src="{{ asset('storage/' . $news_item->image) }}" alt="{{ $news_item->image_alt }}">
-                                </a>
+            <div class="post-grid row col-mb-30">
+                @foreach($testimonies as $news_item)
+                <div class="entry col-lg-4 col-md-6">
+                    <div class="grid-inner card">
+                        <div class="entry-image">
+                            <a href="{{ $url_prefix }}/{{ $news_item->slug }}">
+                                <img src="{{ asset('storage/' . $news_item->image) }}" alt="{{ $news_item->image_alt }}" class="img-fluid" width="70" height="300" style="height:400px !important;" >
+                            </a>
+                        </div>
+                        <div class="p-4">
+                            <div class="entry-title title-sm">
+                                <h3 class="nott ls0 h5">
+                                    {{-- <a href="{{ $url_prefix }}/{{ $news_item->slug }}">{{ $post['title'] }}</a> --}}
+                                    {{ Illuminate\Support\Str::limit(strip_tags($news_item['subject']), 30, '...') }}
+                                </h3>
                             </div>
-                            <div class="testi-content">
-                                <p>{{ Illuminate\Support\Str::limit($news_item['subject'], 40, '...') }}</p>
-                                <div class="testi-meta">
-                                    {{ $news_item->firstname }} {{ $news_item->lastname }}
-                                    <a href="{{ $url_prefix }}/{{ $news_item->slug }}" class="button button-large button-border button-rounded text-end">Click here to read <i class="icon-circle-arrow-right"></i></a>
-                                    <span><i class="far fa-clock"></i> {{ \Carbon\Carbon::parse($news_item->created_at)->diffForHumans() }}</span>
-                                </div>
+                            <div class="entry-meta">
+                                <ul>
+                                    <li><i class="icon-calendar3"></i> {{ \Carbon\Carbon::parse($news_item->created_at)->format('M d Y') }}</li>
+                                    <li><i class="icon-user"></i> {{ $news_item['firstname']}}</li>
+                                    {{-- <li><i class="icon-comments"></i>{{ $post->comments->count() }}</li> --}}
+
+                                </ul>
+                            </div>
+                            <div class="entry-content mt-4">
+                                <p class="mb-0">{!! \Illuminate\Support\Str::limit($news_item['content'], 130, '...') !!}
+                                    <a href="{{ $url_prefix }}/{{ $news_item->slug }}" class="more-link">Read More</a>
+                                </p>
                             </div>
                         </div>
-                    </li>
+                    </div>
+                </div>
                 @endforeach
-            </ul>
-
-            <div class="line"></div>
+            </div>
             <div class="center">
                 <a href="/testimony-form" class="button button-large button-border button-rounded">Upload your Testimony</a>
             </div>
         </div>
+        <div class="line"></div>
     </div>
-    <br>
 </section>
---}}

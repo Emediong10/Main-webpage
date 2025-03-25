@@ -78,7 +78,7 @@
             </div>
         </div>
     </div>
-    <div class="header-wrap-clone"></div>
+    {{-- <div class="header-wrap-clone"></div> --}}
 </header><!-- #header end -->
 <style>
                     #logo img {

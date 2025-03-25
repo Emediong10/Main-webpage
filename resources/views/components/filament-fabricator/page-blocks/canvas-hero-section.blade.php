@@ -28,7 +28,7 @@
                 <div class="col-lg-6">
                     <div class="mb-0 heading-block border-bottom-0 topmargin-sm">
                         <h3 class="font-bold ls1 nott fw-normal"><strong>{{$title }}</strong></h3>
-                        <span>{{ $detail }}</span>
+                       <p><strong>{{ $detail }}</strong> </p>
                         <a href="{{ $link }}" class="button button-large button-rounded topmargin-sm ms-0" style="background-color: #0d2706">{{ $button_name }}</a>
                         <div class="line line-sm"></div>
                     </div>

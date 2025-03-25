@@ -7,42 +7,42 @@
 
     @php
         \Z3d0X\FilamentFabricator\Facades\FilamentFabricator::registerStyles([
-            // '<link href="https://api.fontshare.com/v2/css?f[]=sentient@400,700,201,301,200,501,500,300,2,1,401,701&display=swap" rel="stylesheet">',
 
-           ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-9ndCyUaT5Y9C4Xtdbb+FphzZtfB3NY9+EZI0Yt+IGbhgP8vYoBU/7STl8NEnmHRM" crossorigin="anonymous">',
+
+        '<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,900&display=swap" rel="stylesheet" type="text/css" />',
+        '<meta name="viewport" content="width=device-width, initial-scale=1" />',
             asset('assets/css/bootstrap.css'),
             asset('assets/style.css'),
-            // asset('assets/css/bootstrap-icons.css'),
+           
             asset('assets/css/swiper.css'),
             asset('assets/css/dark.css'),
-            // asset('assets/css/slick.css'),
-            asset('assets/css/font-icons.css'),
+
+             asset('assets/css/font-icons.css'),
             asset('assets/css/animate.css'),
             asset('assets/css/magnific-popup.css'),
             asset('assets/css/custom.css'),
             asset('assets/demos/pet/pet.css'),
-            asset('assets/demos/pet/css/fonts.css'),
+            // asset('assets/demos/pet/css/fonts.css'),
             // asset('assets/css/colors.php?color=f0a540'),
             asset('assets/include/rs-plugin/css/settings.css'),
             asset('assets/include/rs-plugin/css/layers.css'),
-            asset('assets/demos/medical/css/medical-icons.css'),
-            asset('assets/demos/medical/fonts.css'),
+            // asset('assets/demos/medical/css/medical-icons.css'),
+            // asset('assets/demos/medical/fonts.css'),
             asset('assets/demos/travel/travel.css'),
             asset('assets/demos/medical/medical.css'),
             asset('assets/css/components/bs-switches.css'),
-            asset('assets/demos/seo/css/fonts.css'),
+            // asset('assets/demos/seo/css/fonts.css'),
             // asset('assets/css/colors.php?color=FE9603'),
             asset('assets/demos/landing/landing.css'),
 
             asset('assets/demos/seo/seo.css'),
-            asset('assets/demos/landing/css/fonts.css'),
+            // asset('assets/demos/landing/css/fonts.css'),
             //  asset('assets/css/components/datepicker.css'),
-            asset('assets/css/components/bs-rating.css'),
-            asset('assets/css/font-icons.css'),
+            // asset('assets/css/components/bs-rating.css'),
+            // asset('assets/css/font-icons.css'),
             //  asset('assets/css/components/radio-checkbox.css'),
             //asset('assets/css/colors.php?color=AC4147'),
-            asset('assets/demos/nonprofit/css/fonts.css'),
+            // asset('assets/demos/nonprofit/css/fonts.css'),
             asset('assets/demos/nonprofit/nonprofit.css'),
         ]);
     @endphp
@@ -71,11 +71,12 @@
     <script src="{{ asset('assets/js/functions.js') }}"></script>
 
 
-	<script src="{{asset('assets/js/jquery.calendario.js') }}"></script>
-	<script src="{{ asset('assets/demos/nonprofit/js/events.js') }}"></script>
+	{{-- <script src="{{asset('assets/js/jquery.calendario.js') }}"></script>
+	<script src="{{ asset('assets/demos/nonprofit/js/events.js') }}"></script> --}}
 
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -83,22 +84,22 @@
     <link
         href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&display=swap"
         rel="stylesheet" type="text/css" />
-   
+
 
     <link rel="stylesheet" href="{{ asset('assets/css/colors.php?color=215312') }}" type="text/css" />
     <link rel="stylesheet" href="{{asset('assets/demos/nonprofit/css/fonts.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ asset ('assets/demos/nonprofit/nonprofit.css') }}" type="text/css" />
 
 
-    <meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+    <meta name='viewport' content='initial-scale=1, viewport-fit=cover'> --}}
 
 
 
     @yield('payment')
 
     {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
 
 
 
@@ -123,7 +124,7 @@
     <script src="{{ asset('assets/include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
     <script src="{{ asset('assets/include/rs-plugin/js/extensions/revolution.extension.migration.min.js') }}"></script>
     <script src="{{ asset('assets/js/components/moment.js') }}"></script>
-   
+
 
 
 
@@ -136,7 +137,7 @@
     <script src="{{ asset('assets/include/rs-plugin/demos/typewriter/js/revolution.addon.typewriter.min.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="assets/include/rs-plugin/demos/typewriter/css/typewriter.css">
 
-    
+
 
 	<script>
 		jQuery(document).ready( function($){
