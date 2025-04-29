@@ -2,16 +2,16 @@
 @props(['nav_items'])
 
 
-<header id="heade" class="full-header header-size-md">
+<header id="heade" class="full-header header-size-md"  style="background-color: #D7F2C3;">
     <div id="header-wrap">
         <div class="container">
             <div class="header-row justify-content-lg-between">
                 <!-- Logo
                 ============================================= -->
                 <div id="logo">
-                    <a href="#" class="standard-logo" data-dark-logo="images/Aliveng.png"><img
+                    <a href="/" class="standard-logo" data-dark-logo="images/Aliveng.png"><img
                             src="{{ asset('images/Aliveng.png') }}" alt="Alive-Nigeria"></a>
-                    <a href="#" class="retina-logo" data-dark-logo="images/Aliveng.png"><img
+                    <a href="/" class="retina-logo" data-dark-logo="images/Aliveng.png"><img
                             src="{{ asset('images/Aliveng.png') }}" alt="Alive-Nigeria"></a>
                 </div><!-- #logo end -->
 
@@ -81,9 +81,9 @@
     {{-- <div class="header-wrap-clone"></div> --}}
 </header><!-- #header end -->
 <style>
-                    #logo img {
-                        width: 200px;
-                        height: auto;
+                     #logo img {
+                        width: 90px;
+                        height:70px !important;
                     }
 
     @media (max-width: 564.98px) {
@@ -115,7 +115,15 @@
 
     @media (min-width: 1200px) {
         .logo_fit {
-            margin-left: -4%
+            margin-left: -4%;
+
         }
+    }
+
+        @media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1440px !important;
+  }
+
     }
 </style>

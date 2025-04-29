@@ -55,7 +55,7 @@
             <link rel="stylesheet" href="{{ $path }}" />
         @endif
     @endforeach
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all"> --}}
 
     {{ \Filament\Support\Facades\FilamentView::renderHook('filament-fabricator::head.end') }}
 </head>

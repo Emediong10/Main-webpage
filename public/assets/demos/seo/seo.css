@@ -223,7 +223,7 @@ input.switch-toggle-round + label::after { border-radius: 4px }
 .testimonials-carousel .owl-stage { padding-top: 40px }
 
 .testimonials-carousel .owl-item {
-	opacity: .6;
+	/* opacity: .6; */
 	transition: transform .3s ease;
 	transform: scale(0.8);
 }
@@ -234,7 +234,7 @@ input.switch-toggle-round + label::after { border-radius: 4px }
 }
 
 .testimonial {
-	border: 0;
+	/* border: 0; */
 	box-shadow: 0 0 35px rgba(140, 152, 164, 0.2);
 	border-radius: 0.25rem;
 	padding: 25px;

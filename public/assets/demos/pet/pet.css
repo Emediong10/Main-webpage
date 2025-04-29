@@ -79,11 +79,11 @@
 .dark .button-link:hover { color: #f0a540; }
 
 .oc-item .testimonial {
-	margin-left: 1px;
+	/* margin-left: 1px;
 	margin-bottom: 2px;
 	border: 0;
-	border-top: 1px solid #EEE;
-	box-shadow: 0 1px 1px 0 rgba(10, 16, 34, .2);
+	border-top: 1px solid #EEE; */
+	/* box-shadow: 0 1px 1px 0 rgba(10, 16, 34, .2); */
 }
 
 .testi-content p {

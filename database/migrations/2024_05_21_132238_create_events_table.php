@@ -20,16 +20,13 @@ return new class extends Migration
             $table->string('slug');
             $table->boolean('is_general')->default(false);
             $table->tinyInteger('event_status')->nullable();
-            // $table->string('past_event')->nullable();
             $table->date('start_date')->nullable();
             $table->time('start_time')->default('00:00')->nullable();
             $table->string('meta_description')->nullable();
-
             $table->date('end_date')->nullable();
             $table->time('end_time')->default('00:00')->nullable();
              $table->boolean('active')->default(false);
              $table->boolean('calenderable')->default(false);
-
             $table->json('viewable_by')->nullable();
             $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();

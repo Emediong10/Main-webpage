@@ -2657,7 +2657,7 @@ img.lazy:not([src]) {
 	width: 100%;
 	margin: 0px 0;
 	/* padding: 33px 0; */
-	background-color:rgba(8, 49, 255, 0.02) !important;
+	/* background-color:rgba(8, 49, 255, 0.02); */
 	overflow: hidden;
 }
 
@@ -3363,7 +3363,7 @@ html[xmlns] .slider-wrap {
 
 	.full-header #logo {
 		padding-right: 30px;
-		border-right: 1px solid #EEE;
+		/* border-right: 1px solid #EEE; */
 	}
 
 	#header.transparent-header.full-header #logo { border-right-color: rgba(0,0,0,0.1); }
@@ -3913,7 +3913,7 @@ body:not(.top-search-open) .top-search-parent #primary-menu-trigger {
 	.sub-menu-container .menu-item:hover > .menu-link {
 		background-color: #F9F9F9;
 		padding-left: 18px;
-		color: #125b9e;
+		color: #215312;
 	}
 
 	.menu-link div > i.icon-angle-down {
@@ -6368,8 +6368,8 @@ body:not(.has-plugin-html5video) .video-wrap video {
 #page-title {
 	position: relative;
 	padding: 4rem 0;
-	background-color: #F5F5F5;
-	border-bottom: 1px solid #EEE;
+	background-color: #D7F2C3;
+	/* border-bottom: 1px solid #EEE; */
 }
 
 #page-title .container {
@@ -6603,7 +6603,7 @@ body:not(.has-plugin-html5video) .video-wrap video {
 
 .content-wrap {
 	position: relative;
-	padding: 0px 0;
+	padding: 25px;
 	overflow: hidden;
 }
 
@@ -7620,7 +7620,7 @@ body:not(.device-touch) .portfolio {
 .entry-meta li {
 	font-size: 90%;
 	margin: 0 15px 10px 0;
-	color: #999;
+	color: #18181c;
 }
 
 .entry-meta ul.flex-column li {
@@ -8975,7 +8975,7 @@ body:not(.device-touch) .button {
 -----------------------------------------------------------------*/
 
 .button.button-border {
-	border: 2px solid #444;
+	border: 4px solid #215312;
 	background-color: transparent;
 	color: #333;
 	font-weight: 700;
@@ -8989,7 +8989,7 @@ body:not(.device-touch) .button {
 .button.button-border.button-desc { line-height: 1; }
 
 .button.button-border:not(.button-fill):hover {
-	background-color: #444;
+	background-color: #215312;
 	color: #FFF;
 	border-color: transparent !important;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
@@ -11186,7 +11186,7 @@ body:not(.device-touch) .social-icon i {
 	color: #444;
 	height: 40px;
 	line-height: 40px;
-	background-color: #F2F2F2;
+	background-color: #A5C696;
 	font-weight: bold;
 }
 

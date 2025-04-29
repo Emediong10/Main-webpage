@@ -12,7 +12,7 @@ use Filament\Navigation\NavigationItem;
 use Filament\Http\Middleware\Authenticate;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
-use TomatoPHP\FilamentBrowser\FilamentBrowserPlugin;
+// use TomatoPHP\FilamentBrowser\FilamentBrowserPlugin;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
@@ -23,6 +23,7 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Illuminate\Support\Facades\Auth;
 
 
 class AdminPanelProvider extends PanelProvider
@@ -82,12 +83,14 @@ class AdminPanelProvider extends PanelProvider
                 ->navigationGroup('Content')
                 ->navigationSort(3)
                 ->navigationCountBadge()
-                //->resource(\App\Filament\Resources\CustomMediaResource::class)
 
             ])
             ->plugin(
-               FilamentBrowserPlugin::make(),
-            //   FilamentFabricatorPlugin::make(),
+                \TomatoPHP\FilamentBrowser\FilamentBrowserPlugin::make()
+
             );
+
+
+
     }
 }

@@ -7715,7 +7715,7 @@ textarea.form-control-lg {
 }
 
 .mb-4 {
-  margin-bottom: 1.5rem !important;
+  /* margin-bottom: 1.5rem !important; */
 }
 
 .mb-5 {
@@ -7804,8 +7804,8 @@ textarea.form-control-lg {
 }
 
 .px-5 {
-  padding-right: 3rem !important;
-  padding-left: 3rem !important;
+  /* padding-right: 3rem !important;
+  padding-left: 3rem !important; */
 }
 
 .py-0 {
@@ -7824,8 +7824,8 @@ textarea.form-control-lg {
 }
 
 .py-3 {
-  padding-top: 1rem !important;
-  padding-bottom: 1rem !important;
+  padding-top: 1rem ;
+  padding-bottom: 1rem ;
 }
 
 .py-4 {
@@ -8208,7 +8208,7 @@ textarea.form-control-lg {
 
 .bg-light {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  background-color: #D7F2C3;
 }
 
 .bg-dark {

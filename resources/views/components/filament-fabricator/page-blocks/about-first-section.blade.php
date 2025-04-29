@@ -14,36 +14,24 @@
     'tab4_details',
 ])
 
- <section id="content" style="background-color: aliceblue">
+ <section id="content" style="background-color:#D7F2C3 !important">
 			<div class="content-wrap">
-				<div class="container center clearfix">
+				<div class="container clearfix center">
 
 					 {{-- <h3>Rotating Circular Text</h3> --}}
 
 					<div class="circular-text position-relative">
 						<h4 id="rotated-text" class="m-0 rotating infinite">
-							Read and know everything about ALIVE-Nigeria and it's ministry
+							...Know about ALIVE-Nigeria and it's ministry below
 						</h4>
-						<a class="center-text fw-bold h2 text-dark" href="#">ALIVE-NG</a>
+						<a class="center-text fw-bold h2 text-dark">ALIVE-NG</a>
 					</div>
 
 				 </div>
 			</div>
 		</section>
 
-{{-- <section id="page-title" style="background-color: #28591a" class=" page-title-dark">
-
-    <div class="container clearfix">
-
-
-
-        <h1 class="center">About ALIVE NIGERIA</h1>
-
-    </div>
-
-</section>
-<br> --}}
-<section id="content">
+    <section id="content" >
     <div class="content-wrap">
         <div class="container">
 
@@ -51,7 +39,7 @@
 
                 <ul class="tab-nav">
                     <li><a href="#tabs-1"> About ALIVE</a></li>
-                    <li><a href="#tabs-2"> Meet Alive Officials</a></li>
+                    <li><a href="#tabs-2"> Meet ALIVE Officials</a></li>
                     <li><a href="#tabs-3"> ALIVE Nigeria Vision</a></li>
                     <li><a href="#tabs-4"> Why Join Us?</a></li>
                 </ul>
@@ -74,8 +62,9 @@
                         <div class="mb-0 row col-mb-50 horizontal-list">
                             @foreach ($tapping as $item)
                                 <div class="team">
-                                    <div class="team-image">
-                                        <img src="{{ url('storage',$item['about_image'])}}" alt="ALIVE Nigeria">
+                                    <div class="team-image position-relative">
+                                       <img src="{{ Storage::url($item['about_image']) }}" alt="ALIVE Nigeria" class="img-fluid w-100" style="width: 300px !important; height: 270px; !important;">
+
                                     </div>
                                     <div class="team-desc">
                                         <div class="team-title">
@@ -210,3 +199,5 @@
 
 
 </style>
+
+{{-- <style></style> --}}

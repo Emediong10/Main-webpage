@@ -737,7 +737,7 @@ body:not(.floating-contact-processing) .floating-contact-loader { display: none;
 
 	#header-wrap,
 	#header.sticky-header #header-wrap {
-		background-color: var(--themecolor, #C6C09C);
+		background-color:#A5C696;
 	}
 
 	.slider-feature { transform: translateY(-50%); }

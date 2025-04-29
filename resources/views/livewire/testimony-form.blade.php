@@ -1,6 +1,6 @@
-<div>
+
     <div>
-        <section class="bg-light">
+        <section class="bg-lightsl">
                <div class="container py-5">
 
                    <div class="p-5 shadow lc-block rounded-3 col-xl-10 offset-xl-1">
@@ -92,23 +92,47 @@
 
 
 
-                        <div class="mb-4 form-group">
-                            <label>Upload your image</label>
-                            <input type="file" wire:model.live="image" class="file-loading form-select required" data-show-preview="false" />
+                        <div x-data="{ isUploading: false }"
+                        x-init="Livewire.on('upload-start', () => isUploading = true)
+                                Livewire.on('upload-finish', () => isUploading = false)
+                                Livewire.on('upload-error', () => isUploading = false)">
 
-                            @if ($image)
-                                {{-- <div wire:loading wire:target="image">Loading Image...</div> --}}
-                                <img id="imagePreview" src="{{ $image->temporaryUrl() }}" width="1000" height="600"
-                                    {{-- style="display: none;"
-                                    wire:loading.attr="src" --}}
-                                />
-                            @endif
-                        </div>
+                       <div class="mb-4 form-group">
+                           <label>Upload your image</label>
+                           <input
+                               type="file"
+                               wire:model="image"
+                               class="form-control"
+                               data-show-preview="false"
+                           />
 
-                        <button type="submit" class="btn btn-lg" style="background-color:#215312; border-color: #28a745; color: white;"
-                            wire:loading.attr="disabled" wire:target="image">
-                            <span wire:loading.remove wire:target="image">Submit</span><span wire:loading wire:target="image">Loading Image...</span>
-                        </button>
+                           {{-- Show preview when image is uploaded --}}
+                           @if ($image)
+                               <img
+                                   id="imagePreview"
+                                   src="{{ $image->temporaryUrl() }}"
+                                   width="1000"
+                                   height="600"
+                                   class="mt-3"
+                               />
+                           @endif
+                       </div>
+
+                       {{-- Show "Loading Image..." only while uploading --}}
+                       <div x-show="isUploading" class="text-warning mb-3">
+                           Loading Image...
+                       </div>
+
+                       <button
+                           type="submit"
+                           class="btn btn-lg"
+                           style="background-color:#215312; border-color: #28a745; color: white;"
+                           :disabled="isUploading"
+                       >
+                           Submit
+                       </button>
+                   </div>
+
 
 
 
@@ -118,25 +142,14 @@
                    </div>
                </div>
            </section>
-       </div>
-
-</div>
 
 
-{{-- <script>
-    document.addEventListener('livewire:load', function () {
-        Livewire.hook('element.updated', (el, component) => {
-            if (el.querySelector('[wire\\:loading]')) {
-                setTimeout(() => {
-                    let loadingText = document.getElementById('loadingText');
-                    if (loadingText) {
-                        loadingText.style.display = 'block';
-                    }
-                }, Math.floor(Math.random() * 30000)); // Random delay up to 3 seconds
-            }
-        });
-    });
-</script> --}}
+
+<style>
+    .bg-lightsl {
+  background-color: #D7F2C3 !important;
+}
+</style>
 <script>
     document.addEventListener('livewire:load', function () {
         Livewire.on('imageUploaded', function () {
@@ -146,3 +159,4 @@
         });
     });
 </script>
+</div>

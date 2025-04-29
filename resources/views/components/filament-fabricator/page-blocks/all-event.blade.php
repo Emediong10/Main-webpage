@@ -1,17 +1,17 @@
 @aware(['page'])
 @props(['url_prefix', 'events', 'news_pagination'])
 
-@php
+{{-- @php
     $events = \App\Models\Event::where('active', 1)->get();
-@endphp
+@endphp --}}
 
 @if ($events->isNotEmpty())
-<section id="content">
-    <div class="content-wrap">
+
+    <div class="content-wrap" style="background-color: #D7F2C3 !important;" >
 
         <section id="page-title">
             <div class="container clearfix">
-                <h1>Check out our News and Events</h1>
+                <h1>Check Our Events</h1>
             </div>
         </section>
 
@@ -92,7 +92,7 @@
                                                 <div class="bg-overlay-bg dark text-dark" data-hover-animate="fadeIn"></div>
                                             </div>
                                         </div>
-                                        <div class="portfolio-desc" style="background-color:rgb(219, 225, 231)">
+                                        <div class="portfolio-desc" style="background-color:rgb(254, 254, 255)">
                                              <div class="p-4">
                                                 <div class="entry-title title-sm">
                                                     <h3 class="nott ls0 h5">
@@ -113,15 +113,18 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            
+
                                     </div>
                                 </article>
                             @endif
                         @endforeach
                     </div>
+                    <div style="float: right; padding: 10px;">{!! $events->appends(Illuminate\Support\Facades\Request::except('per_page'))->links() !!}
+                    </div>
                 </div>
+
             </div>
         </section>
     </div>
-</section>
+
 @endif

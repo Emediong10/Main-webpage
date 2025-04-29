@@ -12,15 +12,17 @@
 
         </section> --}}
         @php
-        $progressPercentage = $payment_type->target_amount > 0 ? ($payment_type->amount_paid / $payment_type->target_amount) * 100 : 0;
+       $progressPercentage = $payment_type->target_amount > 0
+    ? round(($payment_type->amount_paid / $payment_type->target_amount) * 100, 2)
+    : 0;
     @endphp
 
         <div class="container clearfix">
-            
+
             <!-- Posts
                 ============================================= -->
                 <div id="posts" class="row gutter-30">
-                    
+
                     <div class="entry col-12">
                         <div class="grid-inner">
                             <div class="entry-image">
@@ -49,12 +51,20 @@
                             <h2>{{ ucfirst($event->title) }}</h2>
                         </div> --}}
 
-                       
+
                     </div>
                     <div class="entry-content entry-title">
                         <h2 class="center"><strong>{{ ucfirst($payment_type->title) }}</strong></h2>
                         {!! Str::markdown($payment_type->content)!!}
+
                     </div>
+                    <div class="center" style="text-align: center; margin-top: 20px;">
+                        <a href="{{ route('getform', ['description' => $payment_type->title]) }}" class="button button-large button-border button-rounded">
+                            Donate Now
+                        </a>
+                    </div>
+
+                    {{-- <a href="{{ route('getform', ['description' => $payment_type->title]) }}" class="button button-large button-border button-rounded">Donate Now</a> --}}
                 </div>
             </div>
 

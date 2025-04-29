@@ -1,64 +1,133 @@
+
 @aware(['page'])
-@props([
-    'event',
-    'past_event',
-    'upcoming_title_program',
-    'upcoming_subtitle',
-    'start_date',
-    'end_date',
-    'upcoming_image',
-    'start_time',
-    'end_time',
-    'upcoming_details',
-])
-  <section id="page-title" style="background-color: #28591a" class=" page-title-dark">
+@props(['url_prefix', 'events', 'news_pagination'])
 
-    <div class="container clearfix">
-        <h1 class="center">ALIVE-NIGERIA UPCOMING EVENTS</h1>
+@php
+    $events = $events->filter(function ($event) {
+        return $event->active &&
+               $event->published_at <= now() &&
+               $event->start_date > now() &&
+               $event->end_date > now();
+    });
+@endphp
 
-    </div>
 
-</section>
-<br>
-  <div class="heading-block border-bottom-0 center">
-                <div class="badge rounded-pill badge-default">ALIVE Upcoming Events</div>
-                <h3 class="nott ls0">These are the Upcoming Events we have for you all</h3>
+    <div class="content-wrap"  style="background-color: #D7F2C3 !important;">
+
+        <section id="page-title">
+            <div class="container clearfix">
+                <h1>Check Our Upcoming Events</h1>
             </div>
+        </section>
 
-<div class="content-wrap">
-    <div class="container">
-        <div class="container py-4">
-
-
-
-            @foreach ($event as $item)
-            <div class="mb-5 row">
-                <div class="col-lg-6">
-                    <div class="mb-0 entry-image">
-                        <a href="#"><img src="{{ url('storage', $item['upcoming_image']) }}" alt="ALIVE-Nigeria"></a>
-                    </div>
-                </div>
-                <div class="col-lg-6" style="margin-top: 20px;">
-                    <span class="before-heading">{{ $item['upcoming_title_program'] }}</span>
-                    <div class="entry-title">
-                        <h3><a href="#">{{ $item['upcoming_subtitle'] }}</a></h3>
-                    </div>
-                    <div class="entry-meta">
-                        <ul>
-                            <li><i class="icon-calendar3"></i> Start date: {{ $item['start_date'] }}</li>
-                            <li><i class="icon-calendar3"></i> End date: {{ $item['end_date'] }}</li>
-                            <li><i class="icon-folder-open"></i> Start Time: {{ $item['start_time'] }}</li>
-                        </ul>
-                    </div>
-                    <div class="entry-content">
-                        <p>{{ $item['upcoming_details'] }}</p>
-                    </div>
+        <div class="container mb-5">
+            <div class="blog-posts posts-grid">
+                <div class="row">
                 </div>
             </div>
-            <div class="line"></div>
-            @endforeach
-
-
         </div>
+        @if ($events->isNotEmpty())
+        <section class="section">
+            <div class="content-wrap">
+                <div class="container clearfix">
+
+                    @php
+                        $categories = [
+                            1 => 'pf-illustrations',
+                            2 => 'pf-uielements',
+                            3 => 'pf-media',
+                            4 => 'pf-graphics'
+                        ];
+                        $categoryLabels = [
+                            1 => 'Mission Events',
+                            2 => 'Retreat Events',
+                            3 => 'MEC Events',
+                            4 => 'Phone Evangelism'
+                        ];
+                        $filteredCategories = [];
+                    @endphp
+
+                    @foreach ($events as $event)
+                        @if (isset($categories[$event->event_type_id]))
+                            @php
+                                $filteredCategories[$event->event_type_id] = $categoryLabels[$event->event_type_id];
+                            @endphp
+                        @endif
+                    @endforeach
+
+                    @if (!empty($filteredCategories))
+                    <div class="grid-filter-wrap">
+                        <ul class="grid-filter" data-container="#portfolio">
+                            @foreach ($filteredCategories as $key => $label)
+                                <li><a href="#" data-filter=".{{ $categories[$key] }}">{{ $label }}</a></li>
+                            @endforeach
+                        </ul>
+                        <div class="rounded grid-shuffle" data-container="#portfolio">
+                            <i class="icon-random"></i>
+                        </div>
+                    </div>
+                    @endif
+
+                    <div id="portfolio" class="portfolio row grid-container gutter-30">
+                        @foreach ($events as $event)
+                            @if (isset($categories[$event->event_type_id]))
+                                <article class="portfolio-item col-md-4 col-sm-6 col-12 {{ $categories[$event->event_type_id] }}">
+                                    <div class="grid-inner">
+                                        <div class="portfolio-image">
+                                            <a href="{{ $url_prefix }}/{{ $event->slug }}">
+                                                <x-curator-glider width="500" height="200"
+                                                    class="img-responsive img-fluid img-thumbnail img-thumbnail-no-borders rounded-0"
+                                                    :media="$event['image_id']"
+                                                    style="object-fit: cover !important; width: 450px; height: 200px;" />
+                                            </a>
+                                            <div class="bg-overlay">
+                                                <div class="bg-overlay-content dark" data-hover-animate="fadeIn">
+                                                    <a href="{{ $url_prefix }}/{{ $event->slug }}"
+                                                        class="overlay-trigger-icon text-dark"
+                                                        data-hover-animate="fadeInDownSmall"
+                                                        data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350"
+                                                        data-lightbox="image" title="Image"><i
+                                                            class="icon-line-plus"></i></a>
+                                                    <a href="{{ $url_prefix }}/{{ $event->slug }}"
+                                                        class="overlay-trigger-icon text-dark"
+                                                        data-hover-animate="fadeInDownSmall"
+                                                        data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350"><i
+                                                            class="icon-line-ellipsis"></i></a>
+                                                </div>
+                                                <div class="bg-overlay-bg dark text-dark" data-hover-animate="fadeIn"></div>
+                                            </div>
+                                        </div>
+                                        <div class="portfolio-desc" style="background-color:rgb(254, 254, 255)">
+                                             <div class="p-4">
+                                                <div class="entry-title title-sm">
+                                                    <h3 class="nott ls0 h5">
+                                                        <a href="{{ $url_prefix }}/{{ $event->slug }}">{{ $event['title'] }}</a>
+                                                    </h3>
+                                                </div>
+                                                <div class="entry-meta">
+                                                    <ul>
+                                                        <li><i class="icon-calendar3"></i> {{ date('d M Y', strtotime($event['start_date'])) }}</li>
+
+                                                        <li><i class="icon-comments"></i>{{ $event->comments ? $event->comments->count() : 0 }}</li>
+
+                                                    </ul>
+                                                </div>
+                                                <div class="mt-4 entry-content">
+                                                    <p class="mb-0">{!! \Illuminate\Support\Str::limit($event['content'], 130, '...') !!}
+                                                        <a href="{{ $url_prefix }}/{{ $event->slug }}" class="more-link">Read More</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                    </div>
+                                </article>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-</div>
+
+@endif
+

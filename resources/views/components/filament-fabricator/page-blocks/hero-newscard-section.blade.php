@@ -9,16 +9,17 @@
     'model',
     'data_source',
 ])
-<section class="section" style="background-color:#e9ecef!important">
+{{-- style="background-color:#e9ecef!important" --}}
+<section class="section" style="background-color:#ffffff !important">
     <div class="container mw-md mt-lg-0">
         <div class="row g-4 align-items-end blog-cards">
             <div class="col-md-8">
 
 
                 <div class="p-3 pb-4">
-                    <div
+                    {{-- <div
                         class="mb-4 overflow-hidden before-title text-border-right position-relative text-uppercase ls-3 text-smaller op-10 b-w-50">
-                        {!! $card_title !!}</div>
+                        {!! $card_title !!}</div> --}}
                     <h3 class="mb-4 h2 font-secondary fw-bold lh-base">{!! $main_header !!}</h3>
                     <p class="mb-5">{!! $introductory_text !!}</p>
                 </div>
@@ -30,7 +31,7 @@
                                 <x-curator-glider class="img-fluid card-img-top" :media="$item['image']" glide=""
                                     fallback="thumbnail" data-no-retina width="315" height="210"
                                     style="object-fit: cover;" />
-                                <div class="p-4 card-body">
+                                <div class="p-4 card-body" style="border: 2px solid #ffffff;">
                                     <h5 class="mb-3 text-warning">
                                         {{ \Carbon\Carbon::createFromFormat('Y-m-d', $item['time'])->format('M d Y') }}
                                     </h5>
@@ -74,7 +75,7 @@
                     </div>
                     <div class="col-md-12 col-sm-6">
                         <div class="card h-translate-y-sm transform-ts">
-                            <div class="p-4 card-body">
+                            <div class="p-4 card-body" style="border: 2px solid #C6C09C;">
                                 <h5 class="mb-3 text-warning">
                                     {{ \Carbon\Carbon::createFromFormat('Y-m-d', $bottom_card['time'])->format('M d, Y') }}
                                 </h5>
@@ -90,16 +91,20 @@
                     </div>
 
                 </div>
-            </div>
-        </div> <br>
+            </div> <br>
+        </div>
+        <br><br>
         @if ($data_source == 'db')
             <div class="mb-4 text-center">
                 @if ($model == 'News')
                     <a href="/news" class="btn btn-primary btn-lg">More News</a>
                 @elseif($model == 'Event')
-                    <a href="/events" style="background-color: green" class="btn btn-success">More Events</a>
+                    <a href="/events" class="button button-large button-border button-rounded">More Events</a>
                 @endif
             </div>
         @endif
+        <br><br>
     </div>
+
+
 </section>

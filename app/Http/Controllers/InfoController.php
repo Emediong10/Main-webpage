@@ -32,7 +32,7 @@ class InfoController extends Controller
         /** @var ?class-string<Layout> $layout */
         $layout = FilamentFabricator::getLayoutFromName($page?->layout);
 
-        if (! isset($layout)) {
+        if (!isset($layout)) {
             throw new \Exception("Filament Fabricator: Layout \"{$page->layout}\" not found");
         }
 
@@ -49,4 +49,135 @@ class InfoController extends Controller
          );
 
 }
+
+
+public function currentEvent(Request $request, $slug)
+{
+    $event = Event::where('slug', $slug)
+        ->where(function ($query) {
+            $query->where('active', 1)
+                  ->orWhere('published_at', '<=', now())
+                  ->orWhere('start_date', '<=', now());
+        })
+        ->firstOrFail();
+
+    $page = Page::where('slug', 'current-event/?event')->first();
+
+    if (!$page || !$page->published) {
+        abort(503);
+    }
+
+    // Inject SEO and meta from the event
+        $page->seo_tags=$event->seo_tags;
+        $page->description=$event->meta_description;
+        $page->title=$event->title;
+
+        //dd($page);
+        /** @var ?class-string<Layout> $layout */
+        $layout = FilamentFabricator::getLayoutFromName($page?->layout);
+
+        if (! isset($layout)) {
+            throw new \Exception("Filament Fabricator: Layout \"{$page->layout}\" not found");
+        }
+
+        /** @var string $component */
+        $component = $layout::getComponent();
+         return Blade::render(
+             <<<'BLADE'
+             <x-dynamic-component
+                 :component="$component"
+                 :page="$page"
+             />
+             BLADE,
+             ['component' => $component, 'page' => $page]
+         );
+}
+
+
+
+public function pastEvent(Request $request, $slug)
+{
+    $event = Event::where('slug', $slug)
+        ->where(function ($query) {
+            $query->where('active', 1)
+                  ->orWhere('published_at', '<=', now())
+                  ->orWhere('start_date', '<', now());
+        })
+        ->firstOrFail();
+
+    $page = Page::where('slug', 'past-event/?event')->first();
+
+    if (!$page || !$page->published) {
+        abort(503);
+    }
+
+    // Inject SEO and meta from the event
+        $page->seo_tags=$event->seo_tags;
+        $page->description=$event->meta_description;
+        $page->title=$event->title;
+
+        //dd($page);
+        /** @var ?class-string<Layout> $layout */
+        $layout = FilamentFabricator::getLayoutFromName($page?->layout);
+
+        if (! isset($layout)) {
+            throw new \Exception("Filament Fabricator: Layout \"{$page->layout}\" not found");
+        }
+
+        /** @var string $component */
+        $component = $layout::getComponent();
+         return Blade::render(
+             <<<'BLADE'
+             <x-dynamic-component
+                 :component="$component"
+                 :page="$page"
+             />
+             BLADE,
+             ['component' => $component, 'page' => $page]
+         );
+}
+public function upcomingEvent(Request $request, $slug)
+{
+    $event = Event::where('slug', $slug)
+        ->where(function ($query) {
+            $query->where('active', 1)
+                  ->orWhere('published_at', '<=', now())
+                  ->orWhere('start_date', '>', now());
+        })
+        ->firstOrFail();
+
+    $page = Page::where('slug', 'upcoming-event/?event')->first();
+
+    if (!$page || !$page->published) {
+        abort(503);
+    }
+
+    // Inject SEO and meta from the event
+        $page->seo_tags=$event->seo_tags;
+        $page->description=$event->meta_description;
+        $page->title=$event->title;
+
+        //dd($page);
+        /** @var ?class-string<Layout> $layout */
+        $layout = FilamentFabricator::getLayoutFromName($page?->layout);
+
+        if (! isset($layout)) {
+            throw new \Exception("Filament Fabricator: Layout \"{$page->layout}\" not found");
+        }
+
+        /** @var string $component */
+        $component = $layout::getComponent();
+         return Blade::render(
+             <<<'BLADE'
+             <x-dynamic-component
+                 :component="$component"
+                 :page="$page"
+             />
+             BLADE,
+             ['component' => $component, 'page' => $page]
+         );
+}
+
+
+
 }

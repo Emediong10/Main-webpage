@@ -13,7 +13,7 @@
         '<meta name="viewport" content="width=device-width, initial-scale=1" />',
             asset('assets/css/bootstrap.css'),
             asset('assets/style.css'),
-           
+
             asset('assets/css/swiper.css'),
             asset('assets/css/dark.css'),
 
@@ -76,8 +76,8 @@
 
 
 
-    {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    {{-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> --}}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -91,15 +91,13 @@
 	<link rel="stylesheet" href="{{ asset ('assets/demos/nonprofit/nonprofit.css') }}" type="text/css" />
 
 
-    <meta name='viewport' content='initial-scale=1, viewport-fit=cover'> --}}
+    <meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
 
 
 
     @yield('payment')
 
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
+
 
 
 

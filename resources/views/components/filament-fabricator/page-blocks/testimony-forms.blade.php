@@ -2,11 +2,14 @@
 @aware(['page'])
 <br><br>
 <div>
-    {{-- <div class="block">
-        <div editable="rich">
-            <h2 class="fw-bolder display-5 center">upload your testimony</h2>
+    {{-- <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>Prayer request</h1>
+
         </div>
-    </div> --}}
+
+    </section> --}}
 
 
     <livewire:testimony-form/>

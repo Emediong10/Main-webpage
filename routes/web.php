@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\News;
 use App\Models\Event;
 use App\Models\Testimony;
 use App\Models\PaymentType;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TemplateController;
 
@@ -18,6 +20,11 @@ use App\Http\Controllers\TemplateController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::get('/login', function () {
+    return 'Ask Admin For Login Route';
+})->name('login');
 
 
 Route::get('preview-template/{template}',[App\Http\Controllers\TemplateController::class,'preview'])->name('preview-template');
@@ -46,6 +53,21 @@ foreach(Event::where('active',1)->get() as $event) {
         'event'=>$event->id
     ])->name('event-'.$event->slug);
 }
+foreach(News::where('active',1)->get() as $news) {
+    Route::get('news'."/".$news->slug, [
+        'uses' => 'App\Http\Controllers\NewsController@render_news',
+        'news'=>$news->id
+    ])->name('news-'.$news->slug);
+}
+
+//  Route::get('news/{slug}', [NewsController::class, 'render_news'])->name('news-'.slug);
+
+
+
+Route::get('current-event/{slug}', [InfoController::class, 'currentEvent'])->name('current-event');
+Route::get('past-event/{slug}', [InfoController::class, 'pastEvent'])->name('past-event');
+Route::get('upcoming-event/{slug}', [InfoController::class, 'upcomingEvent'])->name('upcoming-event');
+
 
 foreach(Testimony::where('active',1)->get() as $testimony) {
     Route::get('testimony'."/".$testimony->slug, [

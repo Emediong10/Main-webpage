@@ -5,14 +5,14 @@
 <section id="content">
     <div class="content-wrap">
 
-        <section id="page-title">
+        {{-- <section id="page-title"> --}}
 
             <div class="container clearfix">
                 <h1>Read the {{ $event->title }} Event below</h1>
 
             </div>
 
-        </section>
+        {{-- </section> --}}
         <div class="container clearfix">
 
 
@@ -23,12 +23,13 @@
                 <div class="entry col-12">
                     <div class="grid-inner">
                         <div class="entry-image">
-                            <img  width="500" height="700" style="height: 600px !important;" src="{{ asset('storage/' . $event->image->path) }}" alt="{{ $event->image->alt }}">
+                            <img
+                            src="{{ asset('storage/' . $event->image->path) }}"
+                            alt="{{ $event->image->alt }}"
+                            width="500"
+                            height="700"
+                            style="height: 600px !important; object-fit: cover;">
                         </div>
-                        {{-- <div class="entry-title">
-                            <h2>{{ ucfirst($event->title) }}</h2>
-                        </div> --}}
-
                         <ul>
 
                                 <div class="entry-meta">
@@ -40,13 +41,7 @@
                                  </li>
                                 </div>
                            <br>
-                            {{-- <div class="entry-meta" id="event-countdown2">
-                                @if ($event->author != null)
-                                <li><i class="icon-user"></i> By:{{ $event->author ? $event->author : 'Admin' }}</li>
-                            @endif
 
-                                <li><i class="icon-comment"></i>Venue:{{ $event->venue }}</li>
-                            </div> --}}
 
                             <div class="entry-meta">
 								<ul>

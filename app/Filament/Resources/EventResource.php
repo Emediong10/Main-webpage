@@ -62,9 +62,8 @@ class EventResource extends Resource
                      })
                     ->debounce('500ms')
                     ->live(onBlur: true)
-                    ->label('News Title'),
+                    ->label('Event Title'),
                     TextInput::make('slug')
-                    // ->disabled()
                     ->dehydrated(),
 
                     Select::make('event_type_id')
@@ -130,6 +129,10 @@ class EventResource extends Resource
                         }),
 
                         TextInput::make('venue')->required(),
+
+                        DatePicker::make('published_at')
+                        ->label('Publishing date')
+                        ->required(),
 
                         Select::make('created_by')
                         ->preload()

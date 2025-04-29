@@ -19,7 +19,7 @@
 'reference4',
 
 ])
-<section id="content">
+<section id="content" style="background-color:#D7F2C3 !important">
     <div class="clearfix pt-0 content-wrap">
 
 
@@ -28,8 +28,9 @@
                 <div class="col-lg-6">
                     <div class="mb-0 heading-block border-bottom-0 topmargin-sm">
                         <h3 class="font-bold ls1 nott fw-normal"><strong>{{$title }}</strong></h3>
-                       <p><strong>{{ $detail }}</strong> </p>
-                        <a href="{{ $link }}" class="button button-large button-rounded topmargin-sm ms-0" style="background-color: #0d2706">{{ $button_name }}</a>
+                       <p>{{ $detail }} </p>
+                        {{-- <a href="" class="button button-large button-rounded topmargin-sm ms-0" style="background-color: #0d2706"></a> --}}
+                        <a href="{{ $link }}" class="button button-large button-border button-rounded">{{ $button_name }}</a>
                         <div class="line line-sm"></div>
                     </div>
                     <div class="clearfix row">
@@ -42,15 +43,15 @@
 
                         <div class="col-md-4">
                             <div>
-                                <div class="counter counter-small" style="color: #22c1c3;"><span data-from="10" data-to="145" data-refresh-interval="50" data-speed="700"></span>+</div>
-                                <h5 class="mt-0 fw-semibold nott" style="color: #22c1c3; font-size: 16px;">Graduates</h5>
+                                <div class="counter counter-small" style="color: #ac992e;"><span data-from="10" data-to="145" data-refresh-interval="50" data-speed="700"></span>+</div>
+                                <h5 class="mt-0 fw-semibold nott" style="color: #C6C09C; font-size: 16px;">Graduates</h5>
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div>
-                                <div class="counter counter-small" style="color: #BD3F32;"><span data-from="10" data-to="50" data-refresh-interval="85" data-speed="1200"></span>+</div>
-                                <h5 class="mt-0 fw-semibold nott" style="color: #BD3F32; font-size: 16px;">Professionals</h5>
+                                <div class="counter counter-small" style="color: #215312;"><span data-from="10" data-to="50" data-refresh-interval="85" data-speed="1200"></span>+</div>
+                                <h5 class="mt-0 fw-semibold nott" style="color: #215312; font-size: 16px;">Professionals</h5>
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Page;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Z3d0X\FilamentFabricator\Models\Page as VendorPage;
@@ -23,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Paginator::useBootstrap();
     }
 }
